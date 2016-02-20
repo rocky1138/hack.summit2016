@@ -10,3 +10,16 @@
     float: left;
     background-color: #f5deb3;
 }
+
+.commad-window{
+    width: 30%;
+    float: left;
+    background-color: aliceblue;
+    min-height: 500px;
+}
+
+.command-history{
+    width: 100%;
+    background-color: lightgray;
+    height: 80%;
+}
