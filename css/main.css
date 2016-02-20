@@ -18,8 +18,14 @@
     min-height: 500px;
 }
 
-.command-history{
+.command-hint{
     width: 100%;
     background-color: lightgray;
-    height: 80%;
+    height: 40%;
+}
+
+.command-box{
+    width: 100%;
+    background-color: antiquewhite;
+    height: 40%;
 }
