@@ -1,4 +1,5 @@
 div#guy {
+    position:absolute;
     width:1em;
     height:1em;
     background:#00f;
