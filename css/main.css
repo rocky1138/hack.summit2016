@@ -10,3 +10,22 @@
     float: left;
     background-color: #f5deb3;
 }
+
+.commad-window{
+    width: 30%;
+    float: left;
+    background-color: aliceblue;
+    min-height: 500px;
+}
+
+.command-hint{
+    width: 100%;
+    background-color: lightgray;
+    height: 40%;
+}
+
+.command-box{
+    width: 100%;
+    background-color: antiquewhite;
+    height: 40%;
+}
