@@ -9,6 +9,7 @@
     width: 70%;
     float: left;
     background-color: #f5deb3;
+    min-height: 100px;
 }
 
 .commad-window{
@@ -28,4 +29,9 @@
     width: 100%;
     background-color: antiquewhite;
     height: 40%;
+}
+
+.game-screen{
+    width: 100%;
+    margin: auto;
 }
