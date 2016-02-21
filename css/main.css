@@ -24,10 +24,27 @@ html, body {
 }
 
 .command-window{
-    width: 30%;
-    float: left;
-    background-color: aliceblue;
-    min-height: 500px;
+    position:fixed;
+    top:0px;
+    left:10px;
+    opacity:1;
+    z-index:99;
+    color:black;
+    width:70%;
+    //height:200px;
+
+   width: 95%;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+   font-size:12pt;
+   background-color:white;
+   border: 6px solid;
+   padding:10px;
+   text-align:left;
+   font-family:nokia;
+   font-smooth:never;
+   border: #000000 solid 6px;
+
 }
 
 .command-hint{
