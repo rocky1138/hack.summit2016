@@ -116,6 +116,26 @@ textarea
     z-index: -1;
 }
 
+@keyframes marquee {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+.cloudparent {
+    bottom:0px;
+    position: absolute;
+    animation: marquee 20s linear infinite;
+}
+
+.cloud {
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+    width:300px;
+    height:400px;
+    position: absolute;
+    background-color:white;
+    z-index: -5;
+}
+
 .btn {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
