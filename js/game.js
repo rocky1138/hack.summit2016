@@ -3,7 +3,9 @@ $(function () {
 
     'use strict';
 
-    var links = $('link[rel="import"]');
+    var storyPointsTimer,
+		links = $('link[rel="import"]'),
+		storyPoint = 0;
 
     // When stats object changes, run callback.
     watch (stats, function () {
@@ -16,4 +18,19 @@ $(function () {
 
     // Load level from save game or start at 0.
     stats.level = localStorage.getItem('level') || 0;
+	
+	storyPointsTimer = setInterval(function () {
+		
+		$('div#storyText').append('<p>' + story[storyPoint] + '</p>');
+		
+		if (storyPoint++ > 3) {
+			
+			$('div#story > button').css('display', 'block');
+			$('div#story > button').click(function () {
+				$('div#story').css('display', 'none');
+			});
+			
+			clearInterval(storyPointsTimer);
+		}
+	}, 1500);
 });
