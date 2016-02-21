@@ -14,7 +14,7 @@
     width:100%;
     height:1em;
     background:#ff0000;
-    bottom:-2em;
+    bottom:0;
 }
 
 .obstacle {
@@ -61,7 +61,7 @@
 }
 .wallright {
     color:black;
-    width:10px;
+    width:15px;
     height:100%;
     float:right;
     right:0;
