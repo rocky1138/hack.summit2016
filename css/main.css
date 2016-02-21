@@ -52,6 +52,7 @@
         rgba(215, 102, 54, 0.5),
         rgba(215, 102, 54, 0.5)
     ),url('/images/pixeltexture.png') repeat;
+    box-shadow: 6px 6px 2px #888888;
 }
 .wallright {
     color:black;
@@ -59,14 +60,12 @@
     height:100%;
     float:right;
     right:0;
-    box-shadow: 6px 6px 2px #888888;
 }
 .wallleft {
     color:black;
     width:10px;
     height:100%;
     float:left;
-    box-shadow: 6px 6px 2px #888888;
 }
 
 textarea

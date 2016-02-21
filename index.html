@@ -44,10 +44,20 @@
             <div class='obstacle wall wallright'></div>
             <div class='obstacle wall wallleft'></div>
             <div class='obstacle deathfield'></div>
-            <!-- <div class='' style='width:200px;height:30px;top:300px;right:160px;background-color:white;z-index:3;position:absolute'></div>
-            <div class='' style='width:200px;height:30px;top:400px;left:60px;background-color:white;z-index:3;position:absolute'></div>
-            <div class='' style='width:160px;height:30px;top:430px;left:90px;background-color:white;z-index:3;position:absolute'></div>
-            <div class='' style='width:200px;height:30px;top:270px;right:200px;background-color:white;z-index:3;position:absolute'></div> -->
+        </div>
+
+        <div class='game-window'></div>
+
+        <div id='sandbox'></div>
+
+        <div class='command-window'>
+            <div class='command-hint'>command-hint</div>
+            <div class='command-box'>
+                <textarea id="htmlcommand" rows="4" width="100">
+                    command-box
+                </textarea>
+                <button id="update" type="button">Update</button>
+            </div>
         </div>
 
         <!-- audio -->
@@ -69,19 +79,5 @@
         <audio id=pickup>
             <source src=sounds/pickup.wav>
         </audio>
-
-        <div class='game-window'></div>
-
-        <div id='sandbox'></div>
-
-        <div class='command-window'>
-            <div class='command-hint'>command-hint</div>
-            <div class='command-box'>
-                <textarea id="htmlcommand" rows="4" width="100">
-                    command-box
-                </textarea>
-                <button id="update" type="button">Update</button>
-            </div>
-        </div>
     </body>
 </html>
