@@ -1,19 +1,20 @@
 <!doctype html>
 <html lang='en'>
     <head>
-        <title></title>
+        <title>Super Markup World</title>
 
         <meta charset='utf-8'>
 
         <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
+        <link href='css/term.css' rel="stylesheet">
+        <link href="terminal/css/jquery.terminal.css" rel="stylesheet">
 
         <!-- Levels -->
         <link rel='import' href='levels/level0.html'>
         <link rel='import' href='levels/level1.html'>
         <link rel='import' href='levels/level2.html'>
-
         <link rel='import' href='levels/level3.html'>
         <link rel='import' href='levels/level4.html'>
 
@@ -27,7 +28,6 @@
                 stats = {
                     level: null
                 };
-
             $(function () {
                 guy = $('#guy');
             });
@@ -45,8 +45,9 @@
 
     </head>
     <body>
-        <div class='collider' id='guy'>
-        </div>
+        <div class='collider' id='guy'> </div>
+
+        <div class='game-window'></div>
 
     <!-- <div id="terminal">
 	    <div id="term_demo" style="overflow-y:hidden;"></div>
@@ -57,9 +58,6 @@
             <div class='obstacle wall wallleft'></div>
             <div class='obstacle deathfield'></div>
         </div>
-
-        <div class='game-window'></div>
-
         <div id='sandbox'></div>
 
         <div class='command-window'>
