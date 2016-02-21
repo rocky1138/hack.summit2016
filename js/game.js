@@ -3,9 +3,18 @@ $(function () {
     
     'use strict';
     
-    var links = document.querySelector('link[rel="import"]');
+    var links = $('link[rel="import"]');
     
-    // Load first level.
-    $('.game-window').html(links.import.querySelector('#level0').innerHTML);
+    // When stats object changes, run callback.
+    watch (stats, function () {
+        
+        var level = links[stats.level].import;
+        
+        // Select and display our level.
+        $('.game-window').html(level.querySelector('#level' + stats.level).innerHTML);
+    });
     
+    stats.level = 0;
 });
+
+$('.game-window').append('<div style="position:absolute;width:400px;bottom:0;height:100px;"></div>');

@@ -43,6 +43,7 @@ $(function () {
         var hits = $(colliders_selector).collision(obstacles_selector); //hacky above, blame richard
 
         verticalVelocity = verticalVelocity + (-9.81 * 0.028);
+        
         if (hits.length === 0) {
             guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
         } else {

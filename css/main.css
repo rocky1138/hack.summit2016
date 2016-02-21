@@ -4,11 +4,6 @@
     margin:0;
 }
 
-.levels {
-    display:none;
-}
-
-
 .deathfield {
     position:absolute;
     width:100%;
@@ -29,7 +24,7 @@
     min-height: 100px;
 }
 
-.commad-window{
+.command-window{
     width: 30%;
     float: left;
     background-color: aliceblue;
@@ -81,5 +76,4 @@
       rgba(13, 255, 0, 0.5),
       rgba(13, 255, 0, 0.5)
     ),url('/images/pixeltexture.png') repeat;
-
 }
