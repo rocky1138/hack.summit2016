@@ -137,15 +137,7 @@ jQuery(document).ready(function($, undefined) {
 	},
         prompt: 'COMMAND:  ',
         name: 'shell',
-	height:350,
-	login: function(user, password, callback) {
- 	   //if (user == 'demlinks' && password == 'secret') {
- 	   if (true) {
-	        callback('AUTHENTICATION TOKEN');
-	    } else {
-	        callback(null);
-	    }
-	},
+	    height:350,
         onBlur: function() {
             // prevent loosing focus
             //return false;
