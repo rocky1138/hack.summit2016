@@ -22,7 +22,8 @@ $(function () {
         if (e.keyCode === arrowLeft) {
             horizontalVelocity = -1;
         }
-        if (e.keyCode === arrowUp && lastColDir == "S" ) {
+        if ((e.keyCode === 32 || e.keyCode === arrowUp) && lastColDir == "S" ) {
+            document.getElementById('jump').play();
             lastColDir = '';
             verticalVelocity = 5;
         }
@@ -43,7 +44,7 @@ $(function () {
         var hits = $(colliders_selector).collision(obstacles_selector); //hacky above, blame richard
 
         verticalVelocity = verticalVelocity + (-9.81 * 0.028);
-        
+
         if (hits.length === 0) {
             guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
         } else {
@@ -51,11 +52,13 @@ $(function () {
             lastColDir = $(collData[0]).data("ddata"); //for jumping
 
             if (hits[0].id === 'goal') {
+                document.getElementById('next_level').play();
                 stats.level++;
                 return;
             }
-            
+
             if (hits[0].className.indexOf('deathfield') > -1) {
+                document.getElementById('death').play();
                 verticalVelocity = 0;
                 guy.css('top', $($('.obstacle.platform')[0]).css('top'));
                 guy.css('left', '100px');
