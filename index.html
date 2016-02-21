@@ -1,40 +1,61 @@
 <!doctype html>
 <html lang='en'>
     <head>
-        <title>I still don&#39;t know</title>
+        <title>Super Markup World</title>
+
+        <meta charset='utf-8'>
+
+        <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
+        <link href='css/term.css' rel="stylesheet">
+        <link href="terminal/css/jquery.terminal.css" rel="stylesheet">
+
+        <!-- Levels -->
+        <link rel='import' href='levels/level0.html'>
+        <link rel='import' href='levels/level1.html'>
+        <link rel='import' href='levels/level2.html'>
+        <link rel='import' href='levels/level3.html'>
+        <link rel='import' href='levels/level4.html'>
+
+        <!-- Javascripts -->
         <script src='js/jquery-1.12.0.min.js'></script>
         <script src='js/jquery-collision.min.js'></script>
+        <script src='js/watchjs/src/watch.min.js'></script>
+        <script>
+            // Globals.
+            var guy,
+                stats = {
+                    level: null
+                };
+            $(function () {
+                guy = $('#guy');
+            });
+        </script>
+        <script src="js/input.js"></script>
+        <script src='js/game.js'></script>
         <script src='js/engine.js'></script>
+        
+        <script src="terminal/js/jquery.mousewheel-min.js"></script>
+        <script src="terminal/js/code.js"></script>
+        <script src="terminal/js/jquery.terminal-min.js"></script>
+        <script src="terminal/js/unix_formatting.js"></script>
+       
     </head>
     <body>
-        <div class='game-window'>
+        <div class='collider' id='guy'></div>
 
-            <div id="wall" class="obstacle wallright"></div>
-            <div id="wall" class="obstacle wallleft"></div>
-            <div id="deathfield" class='obstacle deathfield'></div>
+    <div id="terminal">
+	    <div id="term_demo" style="overflow-y:hidden;"></div>
+    </div>
+    
+        <div class='game-window'></div>
 
-            <div class='levels' id='level0'>
-                <div class='obstacle' style='width:200px;height:20px;top:80%;'></div>
-                <div class='obstacle' style='width:200px;height:20px;top:78%;left:10%;'></div>
-                <div class='obstacle' style='width:200px;height:20px;top:80%;left:30%'></div>
-                <div class='obstacle' style='width:200px;height:20px;top:80%;left:60%'></div>
-                <div class='obstacle deathfield'></div>
-            </div>
-            <div class='levels' id='level1'>
-            </div>
-            <div class='levels' id='level2'>
-            </div>
+        <div class='game-border'>
+            <div class='obstacle wall wallright'></div>
+            <div class='obstacle wall wallleft'></div>
+            <div class='obstacle deathfield'></div>
         </div>
-        <div id='sandbox'>
-
-
-        <div class='command-window'>
-            <div class='command-hint'>command-hint</div>
-            <div class='command-box'>command-box</div>
-        </div>
-
         <div id='sandbox'></div>
     </body>
 </html>

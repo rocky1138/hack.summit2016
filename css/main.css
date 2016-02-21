@@ -1,15 +1,16 @@
-*, html, body {
+html, body {
    background:rgb(136, 230, 255);
     padding:0;
     margin:0;
+    overflow:hidden;
 }
 
 .deathfield {
     position:absolute;
     width:100%;
-    height:1em;
+    height:5em;
     background:rgba(235, 221, 218, 0);
-    bottom:0;
+    bottom:-3em;
 }
 
 .obstacle {
@@ -56,16 +57,17 @@
 }
 .wallright {
     color:black;
-    width:15px;
+    width:5em;
     height:100%;
     float:right;
-    right:0;
+    right:-6em;
 }
 .wallleft {
     color:black;
-    width:10px;
+    width:5em;
     height:100%;
     float:left;
+    left:-2em;
 }
 
 textarea
