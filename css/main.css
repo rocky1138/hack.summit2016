@@ -67,3 +67,9 @@
     height:100%;
     float:left;
 }
+
+textarea
+{
+    border:1px solid #999999;
+    width: auto;
+}
