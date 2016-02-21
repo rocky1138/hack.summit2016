@@ -34,3 +34,18 @@
     width: 100%;
     margin: auto;
 }
+
+.wallright {
+    background-color:rgb(215, 102, 54);
+    color:black;
+    width:10px;
+    height:100%;
+    float:right;
+}
+.wallleft {
+    background-color:rgb(101, 215, 54);
+    color:black;
+    width:10px;
+    height:100%;
+    float:left;
+}
