@@ -14,7 +14,7 @@ $(function () {
         $('.game-window').html(level.querySelector('#level' + stats.level).innerHTML);
     });
 
-    stats.level = 4;
+    stats.level = 0;
 });
 
 $('.game-window').append('<div style="position:absolute;width:400px;bottom:0;height:100px;"></div>');
