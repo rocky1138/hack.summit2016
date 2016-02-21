@@ -17,7 +17,7 @@ $(function() {
             horizontalVelocity = 1;
         } else if (e.keyCode === arrowLeft) {
             horizontalVelocity = -1;
-        } else if (e.keyCode === arrowUp) {
+        } else if (e.keyCode === arrowUp && verticalVelocity < 0 ) {
             verticalVelocity = 5;
         }
     });
