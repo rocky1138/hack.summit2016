@@ -13,13 +13,12 @@
     position:absolute;
     width:100%;
     height:1em;
-    background:#ff0000;
+    background:rgba(235, 221, 218, 0);
     bottom:0;
 }
 
 .obstacle {
     position: absolute;
-    background:#0f0;
 }
 
 .game-window{
