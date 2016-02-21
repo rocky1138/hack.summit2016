@@ -105,7 +105,9 @@ $(function () {
         },
         
         resetPlayerPos = function () {
-            guy.css('top', $($('.obstacle.platform')[0]).css('top'));
+            horizontalVelocity = 0;
+            verticalVelocity = 0;
+            guy.css('top', $($('.obstacle.levelplatform')[0]).css('top'));
             guy.css('left', '100px');
         };
     
@@ -185,19 +187,16 @@ $(function () {
         // Did the player hit the goal?
         if (collisionsSimple.length > 0) {
             if (collisionsSimple[0].id === 'goal') {
-                //document.getElementById('next_level').play();
+                document.getElementById('next_level').play();
                 resetPlayerPos();
                 localStorage.setItem("level", stats.level);
                 stats.level++;
-                localStorage.setItem("level", stats.level);
-                resetPlayerPos();
                 return;
             }
         
             // Did the player ded?
             if (collisionsSimple[0].className.indexOf('deathfield') != -1) {
-                //document.getElementById('death').play();
-                verticalVelocity = 0;
+                document.getElementById('death').play();
                 resetPlayerPos();
                 return;
             }

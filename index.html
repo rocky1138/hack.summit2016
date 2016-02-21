@@ -45,9 +45,9 @@
     <body>
         <div class='collider' id='guy'></div>
 
-    <div id="terminal">
-	    <div id="term_demo" style="overflow-y:hidden;"></div>
-    </div>
+        <div id="terminal">
+            <div id="term_demo" style="overflow-y:hidden;"></div>
+        </div>
     
         <div class='game-window'></div>
 
@@ -57,5 +57,38 @@
             <div class='obstacle deathfield'></div>
         </div>
         <div id='sandbox'></div>
+
+        <!-- <div class='command-window'>
+            <div class='command-hint'>command-hint</div>
+            <div class='command-box'>
+                <textarea id="htmlcommand" rows="4" width="100">
+                    command-box
+                </textarea>
+                <button id="update" type="button">Update</button>
+            </div>
+        </div> -->
+
+        <!-- audio -->
+        <audio id=add_div>
+            <source src=sounds/add_div.wav>
+        </audio>
+        <audio id=jump>
+            <source src=sounds/jump.wav>
+        </audio>
+        <audio id=default>
+            <source src=sounds/default.wav>
+        </audio>
+        <audio id=death>
+            <source src=sounds/death.wav>
+        </audio>
+        <audio id=next_level>
+            <source src=sounds/next_level.wav>
+        </audio>
+        <audio id=pickup>
+            <source src=sounds/pickup.wav>
+        </audio>
+        <!-- <audio loop autoplay id=music preload="auto">
+          <source src="/sounds/music.mp3" type="audio/mpeg">
+        </audio> -->
     </body>
 </html>
