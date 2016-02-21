@@ -20,8 +20,7 @@ html, body {
 .game-window{
     width: 70%;
     float: left;
-
-    min-height: 100px;
+    /*min-height: 100px;*/
 }
 
 .command-window{
@@ -94,6 +93,7 @@ textarea
 {
     border:1px solid #999999;
     width: 100%;
+    font-size:1em;
 }
 .levelplatform {
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
