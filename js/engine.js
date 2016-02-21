@@ -50,6 +50,11 @@ $(function () {
 
             lastColDir = $(collData[0]).data("ddata"); //for jumping
 
+            if (hits[0].id === 'goal') {
+                stats.level++;
+                return;
+            }
+            
             if (hits[0].className.indexOf('deathfield') > -1) {
                 verticalVelocity = 0;
                 guy.css('top', $($('.obstacle.platform')[0]).css('top'));
