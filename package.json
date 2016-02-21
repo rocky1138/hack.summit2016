@@ -1,0 +1,27 @@
+{
+  "name": "hack.summit2016",
+  "version": "0.0.1",
+  "description": "Markup Polo Game",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocky1138/hack.summit2016.git"
+  },
+  "keywords": [
+    "Game",
+    "html5"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rocky1138/hack.summit2016/issues"
+  },
+  "homepage": "https://github.com/rocky1138/hack.summit2016#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "grunt-contrib-connect": "^0.11.2"
+  }
+}
