@@ -68,6 +68,11 @@
     float:left;
 }
 
+textarea
+{
+    border:1px solid #999999;
+    width: 100%;
+}
 .platform {
     box-shadow: 6px 6px 2px #888888;
     background:     linear-gradient(
