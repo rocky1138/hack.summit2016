@@ -8,8 +8,9 @@
         <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
-        <link href='css/term.css' rel="stylesheet">
-        <link href="terminal/css/jquery.terminal.css" rel="stylesheet">
+        <link href='css/term.css' rel='stylesheet'>
+        <link href='terminal/css/jquery.terminal.css' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Lakki+Reddy' rel='stylesheet'>
 
         <!-- Levels -->
         <link rel='import' href='levels/level0.html'>
@@ -29,24 +30,40 @@
             var guy,
                 stats = {
                     level: null
-                };
+                },
+				story = [
+					'Prince Pixel and Princes Pixella rule the Super Markup World<br>which was created by the great architect Markup Polo.',
+					'On a beautiful sunny day when Pixel and Pixella visited<br>the mountainous region of Divland ...',
+					'... the evil architect badacss has collapsed all the mountains!<br>Princess Pixella somehow evaded the disaster using a hyperlink tag.',
+					'But now prince Pixel and princess Pixella are separated!',
+					'It is up to you, Prince Pixel, to find princess Pixella and destroy badacss.'
+				];
             $(function () {
                 guy = $('#guy');
             });
         </script>
-        <script src="js/input.js"></script>
+        <script src='js/input.js'></script>
         <script src='js/game.js'></script>
         <script src='js/engine.js'></script>
-        <!-- <script src="js/term.js"></script>
-        <script src="/terminal/js/jquery.mousewheel-min.js"></script>
-        <script src="/terminal/js/code.js"></script>
-        <script src="/terminal/js/jquery.terminal-min.js"></script>
-        <script src="/terminal/js/unix_formatting.js"></script>
-        <link href="/terminal/css/jquery.terminal.css" rel="stylesheet"/> -->
-        <!-- <link href="/css/term.css" rel="stylesheet"/> -->
+        <!-- <script src='js/term.js'></script>
+        <script src='/terminal/js/jquery.mousewheel-min.js'></script>
+        <script src='/terminal/js/code.js'></script>
+        <script src='/terminal/js/jquery.terminal-min.js'></script>
+        <script src='/terminal/js/unix_formatting.js'></script>
+        <link href='/terminal/css/jquery.terminal.css' rel='stylesheet'/> -->
+        <!-- <link href='/css/term.css' rel='stylesheet'/> -->
 
     </head>
     <body>
+	
+		<div id='story'>
+			<h1>
+				<span class='blue'>S</span><span class='red'>u</span><span class='yellow'>p</span><span class='green'>e</span><span class='blue'>r </span> <span class='red'>M</span><span class='green'>a</span><span class='yellow'>r</span><span class='red'>k</span><span class='blue'>u</span><span class='green'>p</span> <span class='yellow'>W</span><span class='red'>o</span><span class='blue'>r</span><span class='green'>l</span><span class='yellow'>d</span>
+			</h1>
+			<div id='storyText'></div>
+			<button type='button'>OK</button>
+		</div>
+	
         <div class='collider' id='guy'>
             <div class='collider' id='horizontalCollider' style='width: 32px; height: 31px;'></div>
             <div class="speechbubble">Help me get to the portal</div>
@@ -54,8 +71,8 @@
 
         <div class='game-window'></div>
 
-    <!-- <div id="terminal">
-	    <div id="term_demo" style="overflow-y:hidden;"></div>
+    <!-- <div id='terminal'>
+	    <div id='term_demo' style='overflow-y:hidden;'></div>
     </div> -->
 
         <div class='game-border'>
@@ -73,8 +90,8 @@
         <div class='command-window'>
             <div class='command-hint'>HTML Command Window</div>
             <div class='command-box'>
-                <textarea id="htmlcommand" rows=5> &lt;div style="left:300px;bottom:300px"&gt;&lt;/div&gt;</textarea>
-                <button id="update" class="btn" type="button">Create</button>
+                <textarea id='htmlcommand' rows=5> &lt;div style='left:300px;bottom:300px'&gt;&lt;/div&gt;</textarea>
+                <button id='update' class='btn' type='button'>Create</button>
             </div>
         </div>
 
