@@ -1,5 +1,5 @@
 *, html, body {
-    background:#fff;
+   background:rgb(136, 230, 255);
     padding:0;
     margin:0;
 }
@@ -8,12 +8,13 @@
     display:none;
 }
 
+
 .deathfield {
     position:absolute;
     width:100%;
     height:1em;
     background:#ff0000;
-    bottom:0px;
+    bottom:-2em;
 }
 
 .obstacle {
@@ -52,18 +53,33 @@
     margin: auto;
 }
 
+.wall {
+    background:     linear-gradient(
+        rgba(215, 102, 54, 0.5),
+        rgba(215, 102, 54, 0.5)
+    ),url('/images/pixeltexture.png') repeat;
+}
 .wallright {
-    background-color:rgb(215, 102, 54);
     color:black;
     width:10px;
     height:100%;
     float:right;
     right:0;
+    box-shadow: 6px 6px 2px #888888;
 }
 .wallleft {
-    background-color:rgb(101, 215, 54);
     color:black;
     width:10px;
     height:100%;
     float:left;
+    box-shadow: 6px 6px 2px #888888;
+}
+
+.platform {
+    box-shadow: 6px 6px 2px #888888;
+    background:     linear-gradient(
+      rgba(13, 255, 0, 0.5),
+      rgba(13, 255, 0, 0.5)
+    ),url('/images/pixeltexture.png') repeat;
+
 }
