@@ -3,7 +3,8 @@ $(document).ready(function () {
   $("#update").click(function() {
     document.getElementById('pickup').play();
     var text = $('textarea#htmlcommand').val();
+    $("div#sandbox").hide().fadeIn(500);
     $("div#sandbox").html(text);
-    $('div#sandbox').children().addClass( "platform obstacle" ).hide().fadeIn(500);
+    console.log($("div#sandbox a").length)
   });
 });
