@@ -32,5 +32,5 @@ $(function () {
 			
 			clearInterval(storyPointsTimer);
 		}
-	}, 1500);
+	}, 100);
 });
