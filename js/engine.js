@@ -37,6 +37,11 @@ $(function () {
         $('#sandbox').html($('#input').val());
     });
 
+    function resetPlayerPos(){
+        guy.css('top', $($('.obstacle.platform')[0]).css('top'));
+        guy.css('left', '100px');
+    }
+
     // Gravity
     setInterval(function () {
 
@@ -52,6 +57,7 @@ $(function () {
             lastColDir = $(collData[0]).data("ddata"); //for jumping
 
             if (hits[0].id === 'goal') {
+                resetPlayerPos();
                 document.getElementById('next_level').play();
                 stats.level++;
                 return;
@@ -60,8 +66,7 @@ $(function () {
             if (hits[0].className.indexOf('deathfield') > -1) {
                 document.getElementById('death').play();
                 verticalVelocity = 0;
-                guy.css('top', $($('.obstacle.platform')[0]).css('top'));
-                guy.css('left', '100px');
+                resetPlayerPos();
                 return;
             }
 
