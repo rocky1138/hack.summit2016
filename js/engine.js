@@ -1,19 +1,28 @@
-$(function() {
-    var guy = $('#guy'),
-        colliders_selector = ".collider";
+$(function () {
+    
+    'use strict';
+    
+    var guy,
+        colliders_selector = ".collider",
         obstacles_selector = ".obstacle",
-        guy_height = guy.css('height');
+        guy_height,
         lastColDir = '',
         verticalVelocity = 1,
         horizontalVelocity = 0,
         arrowLeft = 37,
         arrowUp = 38,
         arrowRight = 39,
-        arrowDown = 40;
+        arrowDown = 40,
+        currentLevel = 0;
 
-    $(document).keydown(function(e) {
-        console.log(e.keyCode);
+    $('#level0').css('display', 'block');
+        
+    // place guy
+    $('.game-window').append('<div class="collider" id="guy"></div>');
+    guy = $('#guy');
+    guy_height = guy.css('height');
 
+    $(document).keydown(function (e) {
         if (e.keyCode === arrowRight) {
             horizontalVelocity = 1;
         }
@@ -44,11 +53,10 @@ $(function() {
         if (hits.length === 0) {
             guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
         } else {
-            //console.dir(hits[0].id);
-            //console.dir($(collData[0]).data("ddata"));
+
             lastColDir = $(collData[0]).data("ddata"); //for jumping
 
-            if  (hits[0].id ==  "deathfield" ){
+            if (hits[0].className.indexOf('deathfield') > -1) {
                 verticalVelocity = 0;
                 guy.css('top', 0);
                 guy.css('left', 0);
@@ -58,6 +66,9 @@ $(function() {
             if (verticalVelocity < 0) {
                 guy.css('top', $(hits[0]).offset().top - guy_height);
             } else {
+                
+                // FIXME For some reason this doesn't always put the player directly on top of the div.
+                // The player sorta sinks halfway.
                 guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
             }
         }
