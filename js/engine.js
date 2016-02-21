@@ -16,9 +16,11 @@ $(function() {
 
         if (e.keyCode === arrowRight) {
             horizontalVelocity = 1;
-        } else if (e.keyCode === arrowLeft) {
+        }
+        if (e.keyCode === arrowLeft) {
             horizontalVelocity = -1;
-        } else if (e.keyCode === arrowUp && lastColDir == "S" ) {
+        }
+        if (e.keyCode === arrowUp && lastColDir == "S" ) {
             lastColDir = '';
             verticalVelocity = 5;
         }
@@ -42,8 +44,8 @@ $(function() {
         if (hits.length === 0) {
             guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
         } else {
-            console.dir(hits[0].id);
-            console.dir($(collData[0]).data("ddata"));
+            //console.dir(hits[0].id);
+            //console.dir($(collData[0]).data("ddata"));
             lastColDir = $(collData[0]).data("ddata"); //for jumping
 
             if  (hits[0].id ==  "deathfield" ){
