@@ -114,13 +114,14 @@ $(function () {
     // Frames are rendering using setInterval set to interval equal to the cycle length.
     // Set the FPS to set how often a frame is rendered.
     // Rendering is divided into three sections: input constraint, simulation, and update.
+
     setInterval(function () {
         
         var collisionsHorizontal = getHorizontalCollisions(),
             collisionsVertical = getVerticalCollisions(),
             
             // Simple collisions don't tell us the direction, but this way
-            // we can get access to the classname and id of the object which it
+            // we can get access to the className and id of the object which it
             // collided against.
             collisionsSimple = getCollisionsSimple(),
         
@@ -188,6 +189,7 @@ $(function () {
                 resetPlayerPos();
                 localStorage.setItem("level", stats.level);
                 stats.level++;
+                resetPlayerPos();
                 return;
             }
         
