@@ -63,7 +63,8 @@
 		</div>
 	
         <div class='collider' id='guy'>
-            <div class='speechbubble'>Help me get to the portal</div>
+            <div class='collider' id='horizontalCollider' style='width: 32px; height: 31px;'></div>
+            <div class="speechbubble">Help me get to the portal</div>
         </div>
 
         <div class='game-window'></div>
@@ -113,9 +114,9 @@
 		<!--
 			Free awesome music provided by http://opengameart.org/content/fun-bgm
 		-->
-        <audio loop autoplay id=music preload='auto'>
-          <source src='/sounds/music.ogg' type='audio/mpeg'>
+        <audio loop autoplay id=music preload="auto" volume="1">
+          <source src="/sounds/music.ogg" type="audio/mpeg">
         </audio>
-        <!-- <div class='button-container'><img src='/images/music_note.gif'></div> -->
+         <div id="music-button" class="button-container"><img src="/images/music_note.gif"></div>
     </body>
 </html>
