@@ -30,16 +30,21 @@ $(function() {
         $('#sandbox').html($('#input').val());
     });
 
-    // Gravity 
+    // Gravity
     setInterval(function () {
-        
-        var hits = $(colliders_selector).collision(obstacles_selector);
-        
-        verticalVelocity = verticalVelocity + (-9.81 * 0.028);
 
+        var hits = $(colliders_selector).collision(obstacles_selector);
+
+        verticalVelocity = verticalVelocity + (-9.81 * 0.028);
         if (hits.length === 0) {
             guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
         } else {
+            if  (hits[0].id ==  "deathfield" ){
+                verticalVelocity = 0;
+                guy.css('top', 0);
+                guy.css('left', 0);
+                return;
+            }
             console.log(hits);
 
             if (verticalVelocity < 0) {
