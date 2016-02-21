@@ -114,3 +114,22 @@ textarea
     ),url('/images/pixeltexture.png') repeat;
     z-index: -1;
 }
+
+.btn {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: 2px solid black;
+  outline:none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
