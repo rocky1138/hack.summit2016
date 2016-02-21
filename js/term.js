@@ -13,13 +13,6 @@ jQuery(document).ready(function($, undefined) {
 	    };
 	} (console.dir.bind(console)));
 
-    function greetings(term) {
-        term.echo('STAR WARS ASCIIMACTION\n'+
-                  'Simon Jansen (C) 1997 - 2008\n'+
-                  'www.asciimation.co.nz\n\n'+
-                  'type "play" to start animation, '+
-                  'press CTRL+D to stop');
-    }
     term = $('#term_demo').terminal(function(command, term) {
 	command = command.trim();
         if (command == 'h') {
@@ -54,8 +47,13 @@ jQuery(document).ready(function($, undefined) {
 				'Secret file, keep out...\n\nSome day there will be something worth hiding here.' +
 				'\n\n\n\n---------------------------------------');
         } else if (command.match(/^<.*/i)) {
+            var patt = new RegExp('<("[^"]*"|\'[^\']*\'|[^\'">])*>'); //this doesnt work at all
+            if (!patt.test(command)){
+                term.echo("You have a typo in your HTML");
+                return;
+            }
 		   $('body').append(command);
-		   term.echo('MARKUP');
+		   term.echo('Yup, valid HTML');
         } else if (command.match(/^cat.*/i)) {
 		   term.echo('File Not Found');
         } else if (command == 'pinwheel') {

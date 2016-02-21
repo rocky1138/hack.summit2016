@@ -73,7 +73,18 @@ textarea
     border:1px solid #999999;
     width: 100%;
 }
+.levelplatform {
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+    background:     linear-gradient(
+      rgba(13, 255, 0, 0.5),
+      rgba(13, 255, 0, 0.5)
+    ),url('/images/pixeltexture.png') repeat;
+}
+
 .platform {
+    width:200px;
+    height:20px;
+    position: absolute;
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
     background:     linear-gradient(
       rgba(13, 255, 0, 0.5),
