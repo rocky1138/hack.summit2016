@@ -4,8 +4,6 @@ $(document).ready(function () {
     console.log("tty");
     var text = $('textarea#htmlcommand').val();
     $("div#sandbox").html(text);
-    console.log(text);
-    //send to server and process response
   });
 });
 

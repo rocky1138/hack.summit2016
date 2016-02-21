@@ -2,48 +2,62 @@
 <html lang='en'>
     <head>
         <title></title>
-        
+
         <meta charset='utf-8'>
-        
+
         <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
-        
+
         <!-- Levels -->
         <link rel='import' href='levels/level0.html'>
         <link rel='import' href='levels/level1.html'>
         <link rel='import' href='levels/level2.html'>
-        
+
         <!-- Javascripts -->
         <script src='js/jquery-1.12.0.min.js'></script>
         <script src='js/jquery-collision.min.js'></script>
+        <script src='js/watchjs/src/watch.min.js'></script>
         <script>
             // Globals.
-            var guy;
+            var guy,
+                stats = {
+                    level: null
+                };
             
             $(function () {                
                 guy = $('#guy');
             });
         </script>
+        <script src="js/input.js"></script>
         <script src='js/game.js'></script>
         <script src='js/engine.js'></script>
+
     </head>
     <body>
-        <div class='collider' id='guy'></div>
-    
+        <div class='collider' id='guy'>
+            <div id="eyes" style="width:4px;height:4px;background-color:white;float:left;margin:2px"></div>
+            <div id="eyes" style="width:4px;height:4px;background-color:white;float:right;margin:2px"></div>
+        </div>
+
         <div class='game-border'>
             <div class='obstacle wall wallright'></div>
             <div class='obstacle wall wallleft'></div>
             <div class='obstacle deathfield'></div>
         </div>
-    
+
         <div class='game-window'></div>
-        
-        <div id='sandbox'>
+
+        <div id='sandbox'></div>
 
         <div class='command-window'>
             <div class='command-hint'>command-hint</div>
-            <div class='command-box'>command-box</div>
+            <div class='command-box'>
+                <textarea id="htmlcommand" rows="4" width="100">
+                    command-box
+                </textarea>
+                <button id="update" type="button">Update</button>
+            </div>
         </div>
     </body>
 </html>

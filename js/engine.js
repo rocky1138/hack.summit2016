@@ -1,8 +1,8 @@
 // Functionality related to game engine.
 $(function () {
-    
+
     'use strict';
-    
+
     var colliders_selector = ".collider",
         obstacles_selector = ".obstacle",
         guy_height = guy.css('height'),
@@ -43,23 +43,29 @@ $(function () {
         var hits = $(colliders_selector).collision(obstacles_selector); //hacky above, blame richard
 
         verticalVelocity = verticalVelocity + (-9.81 * 0.028);
+        
         if (hits.length === 0) {
             guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
         } else {
 
             lastColDir = $(collData[0]).data("ddata"); //for jumping
 
+            if (hits[0].id === 'goal') {
+                stats.level++;
+                return;
+            }
+            
             if (hits[0].className.indexOf('deathfield') > -1) {
                 verticalVelocity = 0;
-                guy.css('top', 0);
-                guy.css('left', 0);
+                guy.css('top', $($('.obstacle.platform')[0]).css('top'));
+                guy.css('left', '100px');
                 return;
             }
 
             if (verticalVelocity < 0) {
                 guy.css('top', $(hits[0]).offset().top - guy_height);
             } else {
-                
+
                 // FIXME For some reason this doesn't always put the player directly on top of the div.
                 // The player sorta sinks halfway.
                 guy.css('top', guy.offset().top + (-1 * verticalVelocity) + 'px');
