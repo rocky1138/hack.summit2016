@@ -77,3 +77,11 @@ border: #000000 solid 6px;
     width: 0;
     z-index: 6;
 }
+
+#princess {
+    position:absolute;
+    width:4em;
+    height:4em;
+    background: url('/images/princess.gif') no-repeat;
+    background-size:  100%;
+}
