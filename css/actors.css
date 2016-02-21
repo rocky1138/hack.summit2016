@@ -23,3 +23,56 @@ div#goal {
       rgba(235, 255, 0, 0.7)
     ),url('/images/door.gif');
 }
+
+
+
+.speechbubble{
+pointer-events: visible;
+overflow-wrap: break-word;
+word-wrap: break-word;
+font-size:12pt;
+color: black;
+background-color:white;
+border: 6px solid;
+padding:10px;
+z-index:4;
+position:absolute;
+bottom:100px;
+min-height:50px;
+max-width:400px;
+display:table-cell;
+left: 80px;
+float:right;
+font-family:arial;
+font-smooth:never;
+    position: absolute;
+    bottom:10px;
+    background: #FFFFFF;
+    border: #000000 solid 6px;
+}
+
+  .speechbubble:after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: -31px;
+    border-style: solid;
+    border-width: 16px 32px 16px 0;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 6;
+}
+
+  .speechbubble:before {
+    content: "";
+    position: absolute;
+    left: -46px;
+    bottom: 10px;
+    border-style: solid;
+    border-width: 21px 40px 21px 0;
+    border-color: transparent #000000;
+    display: block;
+    width: 0;
+    z-index: 6;
+}
