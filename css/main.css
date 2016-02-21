@@ -52,7 +52,7 @@
         rgba(215, 102, 54, 0.5),
         rgba(215, 102, 54, 0.5)
     ),url('/images/pixeltexture.png') repeat;
-    box-shadow: 6px 6px 2px #888888;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
 }
 .wallright {
     color:black;
@@ -74,7 +74,7 @@ textarea
     width: 100%;
 }
 .platform {
-    box-shadow: 6px 6px 2px #888888;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
     background:     linear-gradient(
       rgba(13, 255, 0, 0.5),
       rgba(13, 255, 0, 0.5)
