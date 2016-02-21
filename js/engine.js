@@ -58,6 +58,7 @@ $(function () {
             if (hits[0].id === 'goal') {
                 document.getElementById('next_level').play();
                 stats.level++;
+                localStorage.setItem("level", stats.level);
                 resetPlayerPos();
                 return;
             }
