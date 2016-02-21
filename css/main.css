@@ -1,49 +1,62 @@
-*, html, body {
-    background:#fff;
+html, body {
+   background:rgb(136, 230, 255);
     padding:0;
     margin:0;
-}
-
-.levels {
-    display:none;
+    overflow:hidden;
 }
 
 .deathfield {
     position:absolute;
     width:100%;
-    height:1em;
-    background:#ff0000;
-    bottom:0px;
+    height:5em;
+    background:rgba(235, 221, 218, 0);
+    bottom:-3em;
 }
 
 .obstacle {
     position: absolute;
-    background:#0f0;
 }
 
 .game-window{
     width: 70%;
     float: left;
-    background-color: #f5deb3;
-    min-height: 100px;
+    /*min-height: 100px;*/
 }
 
-.commad-window{
-    width: 30%;
-    float: left;
-    background-color: aliceblue;
-    min-height: 500px;
+.command-window{
+    position:fixed;
+    top:0px;
+    left:10px;
+    opacity:1;
+    z-index:99;
+    color:black;
+    width:70%;
+    //height:200px;
+
+   width: 95%;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+   font-size:12pt;
+   background-color:white;
+   border: 6px solid;
+   padding:10px;
+   text-align:left;
+   font-family:arial;
+   font-smooth:never;
+   border: #000000 solid 6px;
+
 }
 
 .command-hint{
     width: 100%;
-    background-color: lightgray;
     height: 40%;
 }
 
+htmlcommand{
+    height:200px;
+}
+
 .command-box{
-    width: 100%;
-    background-color: antiquewhite;
     height: 40%;
 }
 
@@ -52,18 +65,87 @@
     margin: auto;
 }
 
+.wall {
+    background:     linear-gradient(
+        rgba(215, 102, 54, 0.5),
+        rgba(215, 102, 54, 0.5)
+    ),url('/images/pixeltexture.png') repeat;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+}
 .wallright {
-    background-color:rgb(215, 102, 54);
     color:black;
-    width:10px;
+    width:5em;
     height:100%;
     float:right;
-    right:0;
+    right:-1em;
+
 }
 .wallleft {
-    background-color:rgb(101, 215, 54);
     color:black;
-    width:10px;
+    width:5em;
     height:100%;
     float:left;
+    left:-2em;
+    z-index: -1;
+}
+
+textarea
+{
+    border:1px solid #999999;
+    width: 100%;
+    font-size:1em;
+}
+.levelplatform {
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+    background:     linear-gradient(
+      rgba(13, 255, 0, 0.5),
+      rgba(13, 255, 0, 0.5)
+    ),url('/images/pixeltexture.png') repeat;
+}
+
+.platform {
+    width:200px;
+    height:20px;
+    position: absolute;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+    background:     linear-gradient(
+      rgba(98, 113, 120, 0.5),
+      rgba(98, 113, 120, 0.5)
+    ),url('/images/pixeltexture.png') repeat;
+    z-index: -1;
+}
+
+.btn {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: 2px solid black;
+  outline:none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+.button-container
+{
+ cursor: pointer;
+ position:fixed;
+ bottom:10px;
+ right:10px;
+ opacity:1;
+ z-index:99;
+ color:white;
+ border: 6px solid black;
+ padding:4px;
+ width:48px;
+ height:48px;
+ /*background-color:white;*/
 }

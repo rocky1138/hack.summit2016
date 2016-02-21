@@ -1,6 +1,79 @@
 div#guy {
     position:absolute;
-    width:1em;
-    height:1em;
-    background:#00f;
+    width:2em;
+    height:2em;
+    //background:#00f;
+    bottom:150px;
+    left:100px;
+    background: url('/images/player3.gif') no-repeat;
+    background-size:  100%;
+}
+
+#eye {
+    background: url('/images/eye.png');;
+}
+
+div#goal {
+    position:absolute;
+    width:4em;
+    height:4em;
+    background:#f2ff00;
+    background:     linear-gradient(
+      rgba(0, 247, 255, 0.7),
+      rgba(235, 255, 0, 0.7)
+    ),url('/images/door.gif');
+    z-index:1;
+}
+
+
+
+.speechbubble{
+pointer-events: visible;
+overflow-wrap: break-word;
+word-wrap: break-word;
+font-size:12pt;
+color: black;
+background-color:white;
+border: 6px solid;
+padding:10px;
+z-index:4;
+position:absolute;
+bottom:100px;
+min-height:50px;
+min-width:350px !important;
+display:table-cell;
+left: 80px;
+float:right;
+font-family:arial;
+font-smooth:never;
+position: absolute;
+bottom:10px;
+background: #FFFFFF;
+border: #000000 solid 6px;
+}
+
+  .speechbubble:after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    left: -31px;
+    border-style: solid;
+    border-width: 16px 32px 16px 0;
+    border-color: transparent #FFFFFF;
+    display: block;
+    width: 0;
+    z-index: 6;
+}
+
+  .speechbubble:before {
+    content: "";
+    position: absolute;
+    left: -46px;
+    bottom: 10px;
+    border-style: solid;
+    border-width: 21px 40px 21px 0;
+    border-color: transparent #000000;
+    display: block;
+    width: 0;
+    z-index: 6;
 }
