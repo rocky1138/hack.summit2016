@@ -38,7 +38,7 @@ $(function () {
     });
 
     function resetPlayerPos(){
-        guy.css('top', $($('.obstacle.platform')[0]).css('top'));
+        guy.css('top', $($('.obstacle.levelplatform')[0]).css('top'));
         guy.css('left', '100px');
     }
     // Gravity
