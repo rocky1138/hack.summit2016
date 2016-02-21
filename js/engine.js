@@ -1,11 +1,11 @@
+// Functionality related to game engine.
 $(function () {
     
     'use strict';
     
-    var guy,
-        colliders_selector = ".collider",
+    var colliders_selector = ".collider",
         obstacles_selector = ".obstacle",
-        guy_height,
+        guy_height = guy.css('height'),
         lastColDir = '',
         verticalVelocity = 1,
         horizontalVelocity = 0,
@@ -14,13 +14,6 @@ $(function () {
         arrowRight = 39,
         arrowDown = 40,
         currentLevel = 0;
-
-    $('#level0').css('display', 'block');
-        
-    // place guy
-    $('.game-window').append('<div class="collider" id="guy"></div>');
-    guy = $('#guy');
-    guy_height = guy.css('height');
 
     $(document).keydown(function (e) {
         if (e.keyCode === arrowRight) {

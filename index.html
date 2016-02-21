@@ -1,39 +1,49 @@
 <!doctype html>
 <html lang='en'>
     <head>
-        <title>I still don&#39;t know</title>
+        <title></title>
+
+        <meta charset='utf-8'>
+
+        <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
+
+        <!-- Levels -->
+        <link rel='import' href='levels/level0.html'>
+        <link rel='import' href='levels/level1.html'>
+        <link rel='import' href='levels/level2.html'>
+
+        <!-- Javascripts -->
         <script src='js/jquery-1.12.0.min.js'></script>
         <script src='js/jquery-collision.min.js'></script>
+        <script>
+            // Globals.
+            var guy;
+
+            $(function () {
+                guy = $('#guy');
+            });
+        </script>
+        <script src='js/game.js'></script>
         <script src='js/engine.js'></script>
     </head>
     <body>
-        <div class='game-window'>
+        <div class='collider' id='guy'></div>
 
-            <div id="wall" class="obstacle wall wallright"></div>
-            <div id="wall" class="obstacle wall wallleft"></div>
-            <div id="deathfield" class='obstacle deathfield'></div>
-
-            <div class='levels' id='level0'>
-                <div class='obstacle platform' style='width:200px;height:20px;top:80%;left:20px'></div>
-                <div class='obstacle platform' style='width:200px;height:20px;top:80%;left:30%'></div>
-                <div class='obstacle platform' style='width:200px;height:20px;top:80%;left:60%'></div>
-                <div class='obstacle deathfield'></div>
-            </div>
-            <div class='levels' id='level1'>
-            </div>
-            <div class='levels' id='level2'>
-            </div>
+        <div class='game-border'>
+            <div class='obstacle wall wallright'></div>
+            <div class='obstacle wall wallleft'></div>
+            <div class='obstacle deathfield'></div>
         </div>
-        <div id='sandbox'>
 
+        <div class='game-window'></div>
+
+        <div id='sandbox'>
 
         <div class='command-window'>
             <div class='command-hint'>command-hint</div>
             <div class='command-box'>command-box</div>
         </div>
-
-        <div id='sandbox'></div>
     </body>
 </html>
