@@ -52,8 +52,8 @@ $(function () {
 
             if (hits[0].className.indexOf('deathfield') > -1) {
                 verticalVelocity = 0;
-                guy.css('top', 100);
-                guy.css('left', 60);
+                guy.css('top', $($('.obstacle.platform')[0]).css('top'));
+                guy.css('left', '100px');
                 return;
             }
 
