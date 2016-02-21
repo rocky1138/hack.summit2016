@@ -2,9 +2,14 @@ div#guy {
     position:absolute;
     width:1em;
     height:1em;
-    background:#00f;
+    //background:#00f;
     bottom:150px;
     left:100px;
+    background: url('/images/player3.png');
+}
+
+#eye {
+    background: url('/images/eye.png');;
 }
 
 div#goal {
