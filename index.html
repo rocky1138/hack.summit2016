@@ -1,86 +1,40 @@
 <!doctype html>
 <html lang='en'>
     <head>
-        <title></title>
-
-        <meta charset='utf-8'>
-
-        <!-- CSS files -->
+        <title>I still don&#39;t know</title>
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
-
-        <!-- Levels -->
-        <link rel='import' href='levels/level0.html'>
-        <link rel='import' href='levels/level1.html'>
-        <link rel='import' href='levels/level2.html'>
-
-        <link rel='import' href='levels/level3.html'>
-        <link rel='import' href='levels/level4.html'>
-
-        <!-- Javascripts -->
         <script src='js/jquery-1.12.0.min.js'></script>
         <script src='js/jquery-collision.min.js'></script>
-        <script src='js/watchjs/src/watch.min.js'></script>
-        <script>
-            // Globals.
-            var guy,
-                stats = {
-                    level: null
-                };
-
-            $(function () {
-                guy = $('#guy');
-            });
-        </script>
-        <script src="js/input.js"></script>
-        <script src='js/game.js'></script>
         <script src='js/engine.js'></script>
-
     </head>
     <body>
-        <div class='collider' id='guy'>
-            <!-- <div id="eye" style="width:4px;height:4px;background-color:white;float:left;margin:2px"></div>
-            <div id="eye" style="width:4px;height:4px;background-color:white;float:right;margin:2px"></div> -->
+        <div class='game-window'>
+
+            <div id="wall" class="obstacle wallright"></div>
+            <div id="wall" class="obstacle wallleft"></div>
+            <div id="deathfield" class='obstacle deathfield'></div>
+
+            <div class='levels' id='level0'>
+                <div class='obstacle' style='width:200px;height:20px;top:80%;'></div>
+                <div class='obstacle' style='width:200px;height:20px;top:78%;left:10%;'></div>
+                <div class='obstacle' style='width:200px;height:20px;top:80%;left:30%'></div>
+                <div class='obstacle' style='width:200px;height:20px;top:80%;left:60%'></div>
+                <div class='obstacle deathfield'></div>
+            </div>
+            <div class='levels' id='level1'>
+            </div>
+            <div class='levels' id='level2'>
+            </div>
         </div>
+        <div id='sandbox'>
 
-        <div class='game-border'>
-            <div class='obstacle wall wallright'></div>
-            <div class='obstacle wall wallleft'></div>
-            <div class='obstacle deathfield'></div>
-        </div>
-
-        <div class='game-window'></div>
-
-        <div id='sandbox'></div>
 
         <div class='command-window'>
             <div class='command-hint'>command-hint</div>
-            <div class='command-box'>
-                <textarea id="htmlcommand" rows="4" width="100">
-                    command-box
-                </textarea>
-                <button id="update" type="button">Update</button>
-            </div>
+            <div class='command-box'>command-box</div>
         </div>
 
-        <!-- audio -->
-        <audio id=add_div>
-            <source src=sounds/add_div.wav>
-        </audio>
-        <audio id=jump>
-            <source src=sounds/jump.wav>
-        </audio>
-        <audio id=default>
-            <source src=sounds/default.wav>
-        </audio>
-        <audio id=death>
-            <source src=sounds/death.wav>
-        </audio>
-        <audio id=next_level>
-            <source src=sounds/next_level.wav>
-        </audio>
-        <audio id=pickup>
-            <source src=sounds/pickup.wav>
-        </audio>
+        <div id='sandbox'></div>
     </body>
 </html>
