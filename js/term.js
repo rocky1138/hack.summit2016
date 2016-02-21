@@ -52,7 +52,8 @@ jQuery(document).ready(function($, undefined) {
                 term.echo("You have a typo in your HTML");
                 return;
             }
-		   $('body').append(command);
+            document.getElementById('pickup').play();
+		   $('body').append(command).children(':last').hide().fadeIn(1000);
 		   term.echo('Yup, valid HTML');
         } else if (command.match(/^cat.*/i)) {
 		   term.echo('File Not Found');
