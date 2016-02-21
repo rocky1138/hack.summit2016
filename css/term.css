@@ -1,0 +1,46 @@
+
+#terminal {
+     position:fixed;
+     top:0px;
+     left:10px;
+     opacity:1;
+     z-index:99;
+     color:black;
+     width:70%;
+     //height:200px;
+
+    width: 95%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-size:12pt;
+    background-color:white;
+    border: 6px solid;
+    padding:10px;
+    text-align:left;
+    font-family:nokia;
+    font-smooth:never;
+    border: #000000 solid 6px;
+
+}
+
+
+.terminal-output {
+    background-color: black;
+}
+.command {
+    background-color: black;
+}
+
+#term_demo {
+    height:200px !important;
+}
+
+.prompt {
+    background-color: black;
+}
+.close{
+	z-index:5;
+	float:right;
+	margin;0px;
+	padding:0px;
+}
