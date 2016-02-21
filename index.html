@@ -48,6 +48,7 @@
     </head>
     <body>
         <div class='collider' id='guy'>
+            <div class='collider' id='horizontalCollider' style='width: 32px; height: 31px;'></div>
             <div class="speechbubble">Help me get to the portal</div>
         </div>
 
@@ -79,29 +80,32 @@
 
         <!-- audio -->
         <audio id=add_div>
-            <source src=sounds/add_div.wav>
+            <source src=sounds/add_div.wav volume=".1">
         </audio>
         <audio id=jump>
-            <source src=sounds/jump.wav>
+            <source src=sounds/jump.wav volume="0.1">
         </audio>
         <audio id=default>
-            <source src=sounds/default.wav>
+            <source src=sounds/default.wav volume=".1">
         </audio>
         <audio id=death>
-            <source src=sounds/death.wav>
+            <source src=sounds/death.wav volume=".1">
         </audio>
         <audio id=next_level>
-            <source src=sounds/next_level.wav>
+            <source src=sounds/next_level.wav volume=".1">
         </audio>
         <audio id=thud>
-            <source src=sounds/thud.wav>
+            <source src=sounds/thud.wav volume=".1">
         </audio>
         <audio id=pickup>
-            <source src=sounds/pickup.wav>
+            <source src=sounds/pickup.wav volume=".1">
         </audio>
-        <!-- <audio loop autoplay id=music preload="auto">
-          <source src="/sounds/music.mp3" type="audio/mpeg">
-        </audio> -->
-        <div class="button-container"><img src="/images/music_note.gif"></div>
+		<!--
+			Free awesome music provided by http://opengameart.org/content/fun-bgm
+		-->
+        <audio loop autoplay id=music preload="auto" volume="1">
+          <source src="/sounds/music.ogg" type="audio/mpeg">
+        </audio>
+         <div id="music-button" class="button-container"><img src="/images/music_note.gif"></div>
     </body>
 </html>
