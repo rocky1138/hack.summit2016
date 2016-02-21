@@ -19,7 +19,7 @@ div#goal {
     height:4em;
     background:#f2ff00;
     background:     linear-gradient(
-      rgba(235, 255, 0, 0.7),
+      rgba(0, 247, 255, 0.7),
       rgba(235, 255, 0, 0.7)
-    ),url('/images/pixeltexture.png');
+    ),url('/images/door.gif');
 }
