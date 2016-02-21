@@ -189,6 +189,7 @@ $(function () {
                 resetPlayerPos();
                 localStorage.setItem("level", stats.level);
                 stats.level++;
+                localStorage.setItem("level", stats.level);
                 resetPlayerPos();
                 return;
             }
