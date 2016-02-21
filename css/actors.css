@@ -15,8 +15,8 @@ div#guy {
 
 div#goal {
     position:absolute;
-    width:2em;
-    height:2em;
+    width:4em;
+    height:4em;
     background:#f2ff00;
     background:     linear-gradient(
       rgba(235, 255, 0, 0.7),
