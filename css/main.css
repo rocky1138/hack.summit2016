@@ -92,4 +92,5 @@ textarea
       rgba(13, 255, 0, 0.5),
       rgba(13, 255, 0, 0.5)
     ),url('/images/pixeltexture.png') repeat;
+    z-index: -1;
 }
