@@ -16,5 +16,4 @@ div#goal {
       rgba(235, 255, 0, 0.7),
       rgba(235, 255, 0, 0.7)
     ),url('/images/pixeltexture.png') repeat;
-    box-shadow: 6px 6px 2px #888888;
 }
