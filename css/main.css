@@ -20,26 +20,44 @@ html, body {
 .game-window{
     width: 70%;
     float: left;
-    background-color: #f5deb3;
+
     min-height: 100px;
 }
 
 .command-window{
-    width: 30%;
-    float: left;
-    background-color: aliceblue;
-    min-height: 500px;
+    position:fixed;
+    top:0px;
+    left:10px;
+    opacity:1;
+    z-index:99;
+    color:black;
+    width:70%;
+    //height:200px;
+
+   width: 95%;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+   font-size:12pt;
+   background-color:white;
+   border: 6px solid;
+   padding:10px;
+   text-align:left;
+   font-family:arial;
+   font-smooth:never;
+   border: #000000 solid 6px;
+
 }
 
 .command-hint{
     width: 100%;
-    background-color: lightgray;
     height: 40%;
 }
 
+htmlcommand{
+    height:200px;
+}
+
 .command-box{
-    width: 100%;
-    background-color: antiquewhite;
     height: 40%;
 }
 
@@ -60,7 +78,8 @@ html, body {
     width:5em;
     height:100%;
     float:right;
-    right:-6em;
+    right:-1em;
+
 }
 .wallleft {
     color:black;
@@ -68,6 +87,7 @@ html, body {
     height:100%;
     float:left;
     left:-2em;
+    z-index: -1;
 }
 
 textarea
