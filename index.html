@@ -1,6 +1,7 @@
+<!doctype html>
 <html lang='en'>
     <head>
-        <title>I still don't know</title>
+        <title>I still don&#39;t know</title>
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
         <script src='js/jquery-1.12.0.min.js'></script>
@@ -8,17 +9,24 @@
         <script src='js/engine.js'></script>
     </head>
     <body>
-    <!--
-        <div class="game-screen">
-            //write code for dynamically load level
-            //http://www.html5rocks.com/en/tutorials/webcomponents/imports/
+        <div class='game-window'>
+            <div class='levels' id='level0'>
+                <div class='obstacle' style='width:200px;height:20px;top:80%;'></div>
+                <div class='obstacle' style='width:200px;height:20px;top:80%;left:30%'></div>
+                <div class='obstacle' style='width:200px;height:20px;top:80%;left:60%'></div>
+                <div class='obstacle deathfield'></div>
+            </div>
+            <div class='levels' id='level1'>
+            </div>
+            <div class='levels' id='level2'>
+            </div>
         </div>
-    -->
 
-        <div id='sandbox'>
-            <div id='guy' class='collider'></div>
-            <div id="startplatform" style='width:200px; height:200px; background:#0f0;top:200px;position:absolute;' class='obstacle'></div>
-            <div id="deathfield" style='width:100%; height:50px; background:#ff0000;bottom:0px;position:absolute;' class='obstacle'></div>
+        <div class='command-window'>
+            <div class='command-hint'>command-hint</div>
+            <div class='command-box'>command-box</div>
         </div>
+        
+        <div id='sandbox'></div>
     </body>
 </html>
