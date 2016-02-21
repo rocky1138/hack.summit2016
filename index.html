@@ -1,19 +1,20 @@
 <!doctype html>
 <html lang='en'>
     <head>
-        <title></title>
+        <title>Super Markup World</title>
 
         <meta charset='utf-8'>
 
         <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
         <link href='css/main.css' rel='stylesheet'>
+        <link href='css/term.css' rel="stylesheet">
+        <link href="terminal/css/jquery.terminal.css" rel="stylesheet">
 
         <!-- Levels -->
         <link rel='import' href='levels/level0.html'>
         <link rel='import' href='levels/level1.html'>
         <link rel='import' href='levels/level2.html'>
-
         <link rel='import' href='levels/level3.html'>
         <link rel='import' href='levels/level4.html'>
 
@@ -27,7 +28,6 @@
                 stats = {
                     level: null
                 };
-
             $(function () {
                 guy = $('#guy');
             });
@@ -35,25 +35,34 @@
         <script src="js/input.js"></script>
         <script src='js/game.js'></script>
         <script src='js/engine.js'></script>
-
+        
+        <script src="terminal/js/jquery.mousewheel-min.js"></script>
+        <script src="terminal/js/code.js"></script>
+        <script src="terminal/js/jquery.terminal-min.js"></script>
+        <script src="terminal/js/unix_formatting.js"></script>
+        <script src="js/term.js"></script>
+        
+        
+        
+        
     </head>
     <body>
-        <div class='collider' id='guy'>
-            <!-- <div id="eye" style="width:4px;height:4px;background-color:white;float:left;margin:2px"></div>
-            <div id="eye" style="width:4px;height:4px;background-color:white;float:right;margin:2px"></div> -->
+        <div class='collider' id='guy'></div>
+
+        <div id="terminal">
+            <div id="term_demo" style="overflow-y:hidden;"></div>
         </div>
+    
+        <div class='game-window'></div>
 
         <div class='game-border'>
             <div class='obstacle wall wallright'></div>
             <div class='obstacle wall wallleft'></div>
             <div class='obstacle deathfield'></div>
         </div>
-
-        <div class='game-window'></div>
-
         <div id='sandbox'></div>
 
-        <div class='command-window'>
+        <!-- <div class='command-window'>
             <div class='command-hint'>command-hint</div>
             <div class='command-box'>
                 <textarea id="htmlcommand" rows="4" width="100">
@@ -61,7 +70,7 @@
                 </textarea>
                 <button id="update" type="button">Update</button>
             </div>
-        </div>
+        </div> -->
 
         <!-- audio -->
         <audio id=add_div>
@@ -79,8 +88,14 @@
         <audio id=next_level>
             <source src=sounds/next_level.wav>
         </audio>
+        <audio id=thud>
+            <source src=sounds/thud.wav>
+        </audio>
         <audio id=pickup>
             <source src=sounds/pickup.wav>
+        </audio>
+        <audio loop autoplay id=music preload="auto">
+          <source src="/sounds/music.mp3" type="audio/mpeg">
         </audio>
     </body>
 </html>
