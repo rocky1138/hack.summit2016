@@ -2,6 +2,7 @@ html, body {
    background:rgb(136, 230, 255);
     padding:0;
     margin:0;
+    overflow:hidden;
 }
 
 .deathfield {
@@ -19,7 +20,7 @@ html, body {
 .game-window{
     width: 70%;
     float: left;
-    background-color: #f5deb3;
+
     min-height: 100px;
 }
 
@@ -41,7 +42,7 @@ html, body {
    border: 6px solid;
    padding:10px;
    text-align:left;
-   font-family:nokia;
+   font-family:arial;
    font-smooth:never;
    border: #000000 solid 6px;
 
@@ -49,13 +50,14 @@ html, body {
 
 .command-hint{
     width: 100%;
-    background-color: lightgray;
     height: 40%;
 }
 
+htmlcommand{
+    height:200px;
+}
+
 .command-box{
-    width: 100%;
-    background-color: antiquewhite;
     height: 40%;
 }
 
