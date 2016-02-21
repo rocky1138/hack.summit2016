@@ -24,8 +24,8 @@
                 stats = {
                     level: null
                 };
-            
-            $(function () {                
+
+            $(function () {
                 guy = $('#guy');
             });
         </script>
@@ -44,7 +44,31 @@
             <div class='obstacle wall wallright'></div>
             <div class='obstacle wall wallleft'></div>
             <div class='obstacle deathfield'></div>
+            <!-- <div class='' style='width:200px;height:30px;top:300px;right:160px;background-color:white;z-index:3;position:absolute'></div>
+            <div class='' style='width:200px;height:30px;top:400px;left:60px;background-color:white;z-index:3;position:absolute'></div>
+            <div class='' style='width:160px;height:30px;top:430px;left:90px;background-color:white;z-index:3;position:absolute'></div>
+            <div class='' style='width:200px;height:30px;top:270px;right:200px;background-color:white;z-index:3;position:absolute'></div> -->
         </div>
+
+        <!-- audio -->
+        <audio id=add_div>
+            <source src=sounds/add_div.wav>
+        </audio>
+        <audio id=jump>
+            <source src=sounds/jump.wav>
+        </audio>
+        <audio id=default>
+            <source src=sounds/default.wav>
+        </audio>
+        <audio id=death>
+            <source src=sounds/death.wav>
+        </audio>
+        <audio id=next_level>
+            <source src=sounds/next_level.wav>
+        </audio>
+        <audio id=pickup>
+            <source src=sounds/pickup.wav>
+        </audio>
 
         <div class='game-window'></div>
 
