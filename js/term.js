@@ -53,7 +53,7 @@ jQuery(document).ready(function($, undefined) {
                 return;
             }
             document.getElementById('pickup').play();
-		   $('body').append(command).children(':last').hide().fadeIn(1000);
+		   $('body').append(command).children(':last').hide().fadeIn(500);
 		   term.echo('Yup, valid HTML');
         } else if (command.match(/^cat.*/i)) {
 		   term.echo('File Not Found');
