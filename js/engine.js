@@ -184,7 +184,7 @@ $(function () {
             }
 
             if (collided.indexOf('friend') != -1) {
-                alert('game over');
+                $('#endstory').fadeIn(500);
                 return;
             }
 
