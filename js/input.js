@@ -34,6 +34,6 @@ $(document).ready(function () {
     currentMousePos.x = event.pageX;
     currentMousePos.y = event.pageY;
     $('.tooltip').css('left', event.pageX + 10).css('top', event.pageY + 10).css('display', 'block');
-    $('.tooltip').html( "( " + currentMousePos.x + ", " + (windowHeight - currentMousePos.y) + " )" );
+    $('.tooltip').html( "X: " + currentMousePos.x + "px, Y: " + (windowHeight - currentMousePos.y) + "px" );
   });
 });
