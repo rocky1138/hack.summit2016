@@ -19,18 +19,24 @@ $(function () {
     // Load level from save game or start at 0.
     stats.level = localStorage.getItem('level') || 0;
 	
-	storyPointsTimer = setInterval(function () {
+	// Only show the intro screen on the first level.
+	if (parseInt(stats.level) === 0) {
 		
-		$('div#storyText').append('<p>' + story[storyPoint] + '</p>');
+		$('div#story').css('display', 'block');
 		
-		if (storyPoint++ > 3) {
+		storyPointsTimer = setInterval(function () {
 			
-			$('div#story > button').css('display', 'block');
-			$('div#story > button').click(function () {
-				$('div#story').css('display', 'none');
-			});
+			$('div#storyText').append('<p>' + story[storyPoint] + '</p>');
 			
-			clearInterval(storyPointsTimer);
-		}
-	}, 100);
+			if (storyPoint++ > 3) {
+				
+				$('div#story > button').css('display', 'block');
+				$('div#story > button').click(function () {
+					$('div#story').css('display', 'none');
+				});
+				
+				clearInterval(storyPointsTimer);
+			}
+		}, 100);
+	}
 });
