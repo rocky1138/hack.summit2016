@@ -149,3 +149,14 @@ textarea
  height:48px;
  /*background-color:white;*/
 }
+
+.tooltip {
+    position: fixed; /** depends on how it handles the e.pageX and e.pageY **/
+    //width: 10px;
+    //height: 10px;
+    background-color: #C2CCD1 ;
+    border: 1px dotted ;
+    border-color: black;
+    z-index: 10;
+    display: none; /**let the tooltip be not visable, when startup **/
+}
