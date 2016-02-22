@@ -22,10 +22,12 @@ $(document).ready(function () {
     if(volume === "1"){
       $('#music').prop('volume', 0);
       $('#music').attr('volume', 0);
+      $('#music-button').css('opacity', 0.5);
     }
     if(volume === "0"){
       $('#music').prop('volume', 1);
       $('#music').attr('volume', 1);
+      $('#music-button').css('opacity', 1);
     }
   });
 
