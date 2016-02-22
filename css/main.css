@@ -228,7 +228,7 @@ font-family:nokia;
     position: fixed; /** depends on how it handles the e.pageX and e.pageY **/
     width: 120px;
     background-color: white ;
-    opacity:0.90;
+    /*opacity:0.90;*/
     text-align: center;
     border: 2px solid ;
     border-color: black;
