@@ -67,6 +67,9 @@ $(function () {
                 $('span#speech-bubble-close').removeClass('faded');
                 $('span#speech-bubble-prev').addClass('faded');
                 $('span#speech-bubble-next').addClass('faded');
+            } else {
+                $('span#speech-bubble-prev').addClass('faded');
+                $('span#speech-bubble-next').removeClass('faded');
             }
 
             $('div#speech-bubble-text').html($(hints[0]).html());
