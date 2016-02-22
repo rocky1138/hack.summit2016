@@ -239,9 +239,7 @@ $(function () {
             }
         }
 
-        if (collHori.indexOf('W') != -1) {
-
-            
+        if (collHori.indexOf('W') != -1) {     
             //console.log(parseFloat($(collisionsHorizontal[0]).css('width')));
 
             var leftLimit = parseFloat($(collisionsHorizontal[0]).css('width').replace('px', ''));
@@ -254,12 +252,12 @@ $(function () {
                 }
             }
 
-            guy.css('left', guy.offset().left + leftLimit + 'px');
+            guy.css('left', guy.offset().left + 6 + 'px');
             
             //guy.css('left', oldLeft - 1);
         
         } else if (collHori.indexOf('E') != -1) {
-
+            /*
             var leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
 
             console.log('Right collision');
@@ -269,13 +267,13 @@ $(function () {
                     leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
                 }
             }
-
-            guy.css('left', guy.offset().left - leftLimit + 'px');
+            */
+            guy.css('left', guy.offset().left - 6 + 'px');
             
             //guy.css('left', oldLeft);
 
         }
-        console.log(collVert);
+
         if (collVert.indexOf('S') != -1) {
             console.log('On ground.');
 
@@ -289,8 +287,24 @@ $(function () {
             verticalVelocity = 0;
 
             guy.css('top', guy.offset().top + bottomLimit - (guy_height - 1) + 'px');
-        } else {
+        }
+        else if (collVert.indexOf('N') != -1) {
+            console.log('Hit top.');
+            /*
+            var bottomLimit = 0;
+            for (var i = 0; i < collisionsVertical.length; i++) {
+                if (parseFloat($(collisionsVertical[i]).css('top').replace('px', '')) > bottomLimit) {
+                    bottomLimit = parseFloat($(collisionsVertical[i]).css('top').replace('px', ''));
+                }
+            }*/
+
+            verticalVelocity = 0;
+
+            guy.css('top', guy.offset().top + 6 + 'px');
+        } 
+        else {
             guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
         }
+
     }, cycleLength);
 });
