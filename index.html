@@ -18,6 +18,8 @@
         <link rel='import' href='levels/level2.html'>
         <link rel='import' href='levels/level3.html'>
         <link rel='import' href='levels/level4.html'>
+        <link rel='import' href='levels/level5.html'>
+        <link rel='import' href='levels/level6.html'>
 
         <!-- Javascripts -->
         <script src='js/jquery-1.12.0.min.js'></script>
@@ -77,6 +79,11 @@
             <div class='obstacle wall wallright'></div>
             <div class='obstacle wall wallleft'></div>
             <div class='obstacle deathfield'></div>
+            <!-- <div class='cloudparent'>
+                <div class='cloud' style='left:200px;bottom:350px;'''></div>
+                <div class='cloud' style='left:1000px;bottom:450px;'''></div>
+                <div class='cloud' style='left:1500px;bottom:500px;'''></div>
+            </div> -->
         </div>
         <div id='sandbox'></div>
 
@@ -90,27 +97,26 @@
 
         <!-- audio -->
         <audio id=add_div>
-            <source src=sounds/add_div.wav>
+            <source src=sounds/add_div.wav volume=".1">
         </audio>
         <audio id=jump>
-            <source src=sounds/jump.wav>
+            <source src=sounds/jump.wav volume="0.1">
         </audio>
         <audio id=default>
-            <source src=sounds/default.wav>
+            <source src=sounds/default.wav volume=".1">
         </audio>
         <audio id=death>
-            <source src=sounds/death.wav>
+            <source src=sounds/death.wav volume=".1">
         </audio>
         <audio id=next_level>
-            <source src=sounds/next_level.wav>
+            <source src=sounds/next_level.wav volume=".1">
         </audio>
         <audio id=thud>
-            <source src=sounds/thud.wav>
+            <source src=sounds/thud.wav volume=".1">
         </audio>
         <audio id=pickup>
-            <source src=sounds/pickup.wav>
+            <source src=sounds/pickup.wav volume=".1">
         </audio>
-		
 		<!--
 			Free awesome music provided by http://opengameart.org/content/fun-bgm
 		-->
