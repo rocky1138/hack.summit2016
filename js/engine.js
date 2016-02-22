@@ -279,7 +279,7 @@ $(function () {
         }
 
         if (collVert.indexOf('S') != -1) {
-            console.log('On ground.');
+            // console.log('On ground.');
 
             var bottomLimit = 0;
             for (var i = 0; i < collisionsVertical.length; i++) {

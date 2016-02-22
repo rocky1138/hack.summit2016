@@ -1,4 +1,4 @@
-html, body {
+    html, body {
 	background:rgb(136, 230, 255);
 	padding:0;
 	margin:0;
@@ -218,11 +218,11 @@ textarea
 }
 
 .tooltip {
-    font-family:'Lakki Reddy';
+    font-family:nokia;
     font-size: 1em;
     background:#fff;
     position: fixed; /** depends on how it handles the e.pageX and e.pageY **/
-    width: 80px;
+    width: 200px;
     background-color: white ;
     opacity:0.90;
     text-align: center;
@@ -231,4 +231,11 @@ textarea
     z-index: 10;
     display: none; /**let the tooltip be not visable, when startup **/
     padding-top: .35em;
+    padding-bottom: .35em;
 }
+
+
+ @font-face {
+     font-family:  nokia;
+      src: url(/fonts/nokia.ttf);
+ }
