@@ -29,18 +29,16 @@ $(function () {
             
             $('span#speech-bubble-prev').click(function () {
                 if (speechBubbleIndex > 0) {
+                    
                     $('div#speech-bubble-text').html($(hints[--speechBubbleIndex]).html());
+                    
+                    $('span#speech-bubble-next').removeClass('faded');
                     
                     if (speechBubbleIndex === 0) {
                         $('span#speech-bubble-prev').addClass('faded');    
-                        $('span#speech-bubble-next').removeClass('faded');
                     } else {
                         $('span#speech-bubble-prev').removeClass('faded');
                     }
-                    
-                } else {
-                    $('span#speech-bubble-prev').addClass('faded');
-                    $('span#speech-bubble-next').removeClass('faded');
                 }
             });
             
@@ -49,15 +47,13 @@ $(function () {
                     
                     $('div#speech-bubble-text').html($(hints[++speechBubbleIndex]).html());
                     
+                    $('span#speech-bubble-prev').removeClass('faded');
+                    
                     if (speechBubbleIndex == hints.length - 1) {
-                        $('span#speech-bubble-prev').removeClass('faded');
                         $('span#speech-bubble-next').addClass('faded');
                     } else {
                         $('span#speech-bubble-next').removeClass('faded');
                     }
-                } else {
-                    $('span#speech-bubble-next').addClass('faded');
-                    $('span#speech-bubble-prev').removeClass('faded');
                 }
             })
             
