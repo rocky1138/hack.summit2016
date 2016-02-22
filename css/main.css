@@ -1,8 +1,9 @@
 html, body {
-   background:rgb(136, 230, 255);
-    padding:0;
-    margin:0;
-    overflow:hidden;
+	background:rgb(136, 230, 255);
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	font-family: Arial, sans-serif;
 }
 
 .deathfield {
@@ -11,6 +12,53 @@ html, body {
     height:5em;
     background:rgba(235, 221, 218, 0);
     bottom:-3em;
+}
+
+div#story {
+	display:none;
+	overflow:visible;
+	font-family:'Lakki Reddy';
+	font-size:1.25em;
+	background:#fff;
+	opacity:0.90;
+	height:100%;
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:100;
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+.red {color: red;}
+.blue {color:blue;}
+.yellow {color:yellow;}
+.green {color:green;}
+
+div#story button {
+	display:none;
+	margin:0 auto;
+	border:0.5em solid black;
+	padding:1em;
+	background:#fff;
+	transform: rotate(-5deg);
+	font-family:'Lakki Reddy';
+	width:12em;
+}
+div#story button:active {
+	background:#000;
+	color:#fff;
+}
+
+div#story p {
+	overflow:visible;
+	font-weight:bold;
+}
+
+h1 {
+	font-size:2.5em;
+	text-shadow: 3px 3px #000;
 }
 
 .obstacle {
@@ -30,7 +78,6 @@ html, body {
     opacity:1;
     z-index:99;
     color:black;
-    width:70%;
     //height:200px;
 
    width: 95%;
@@ -44,7 +91,6 @@ html, body {
    font-family:arial;
    font-smooth:never;
    border: #000000 solid 6px;
-
 }
 
 .command-hint{
@@ -66,7 +112,7 @@ htmlcommand{
 }
 
 .wall {
-    background:     linear-gradient(
+    background: linear-gradient(
         rgba(215, 102, 54, 0.5),
         rgba(215, 102, 54, 0.5)
     ),url('/images/pixeltexture.png') repeat;
@@ -91,7 +137,8 @@ htmlcommand{
 
 textarea
 {
-    border:1px solid #999999;
+
+    border:2px solid black;
     width: 100%;
     font-size:1em;
 }
@@ -114,6 +161,26 @@ textarea
     ),url('/images/pixeltexture.png') repeat;
     z-index: -1;
 }
+
+@keyframes marquee {
+  0% { left: 100%; }
+  100% { left: -100%; }
+}
+
+/*.cloudparent {
+    bottom:0px;
+    position: absolute;
+    animation: marquee 20s linear infinite;
+}
+
+.cloud {
+    box-shadow: 6px 6px 0px rgba(84, 84, 84, 0.7);
+    width:300px;
+    height:150px;
+    position: absolute;
+    background-color:white;
+    z-index: -5;
+}*/
 
 .btn {
   -webkit-border-radius: 2px;
@@ -147,5 +214,21 @@ textarea
  padding:4px;
  width:48px;
  height:48px;
- /*background-color:white;*/
+ background-color:white;
+}
+
+.tooltip {
+    font-family:'Lakki Reddy';
+    font-size: 1em;
+    background:#fff;
+    position: fixed; /** depends on how it handles the e.pageX and e.pageY **/
+    width: 80px;
+    background-color: white ;
+    opacity:0.90;
+    text-align: center;
+    border: 2px solid ;
+    border-color: black;
+    z-index: 10;
+    display: none; /**let the tooltip be not visable, when startup **/
+    padding-top: .35em;
 }

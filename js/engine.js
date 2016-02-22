@@ -1,32 +1,25 @@
 $(function () {
-    
+
     'use strict';
-    
+
     var fps = 30, // Set frame rate.
         cycleLength = Math.round(1000 / fps), // Length of one frame in ms.
         deltaTime = fps / 1000, // Length of one cycle in seconds.
         velocityScaler = 1, // A number to scale velocity with number of pixels.
         jumpVelocity = 6, // Jump velocity.
         moveVelocity = 6, // Walking veloicty.
-        guy,
         colliders_selector = ".collider",
         obstacles_selector = ".obstacle",
-        guy_height,
+        guy_height = guy.css('height'),
         lastColDir = '',
         verticalVelocity = 0,
         horizontalVelocity = 0,
+        keyJump = 32,
         arrowLeft = 37,
         arrowUp = 38,
         arrowRight = 39,
         arrowDown = 40,
         currentLevel = 0;
-
-    $('#level0').css('display', 'block');
-        
-    // place guy
-    $('.game-window').append('<div class="collider" id="guy" style="background-color: rgba(0, 0, 0, 0);"><div class="collider" id="horizontalCollider" style="height: 15px; width: 16px; background-color: red;"></div></div>');
-    guy = $('#guy');
-    guy_height = guy.height();
 
     /* INPUT SECTION */
     // Keymap is used to keep track of which button currently pressed.
@@ -45,15 +38,13 @@ $(function () {
             if (keyMap.left) {
                 keyMap.left = false;
             }
-        }
-        else if (e.keyCode === arrowLeft) {
+        } else if (e.keyCode === arrowLeft) {
             keyMap.left = true;
 
             if (keyMap.right) {
                 keyMap.right = false;
             }
-        }
-        else if (e.keyCode === arrowUp) {
+        } else if (e.keyCode === arrowUp || e.keyCode === keyJump) {
             keyMap.up = true;
         }
     });
@@ -62,148 +53,262 @@ $(function () {
     $(document).keyup(function (e) {
         if (e.keyCode === arrowRight) {
             keyMap.right = false;
-        }
-        else if (e.keyCode === arrowLeft) {
+        } else if (e.keyCode === arrowLeft) {
             keyMap.left = false;
-        }
-        else if (e.keyCode === arrowUp) {
+        } else if (e.keyCode === arrowUp || e.keyCode === keyJump) {
             keyMap.up = false;
         }
     });
-    
-    function getCollisionDirections() {
-        // Get collider data, specifically the direction of collision and the obstacle collided with.
-        var horizontalCollider = $('#horizontalCollider.collider').collision(obstacles_selector, { 
-            relative: "#horizontalCollider", 
-            obstacleData: "odata", 
-            directionData: "ddata", 
-            as: "<div/>"
-        });
 
-        var verticalCollider = $('#guy.collider').collision(obstacles_selector, { 
-            relative: "#guy", 
-            obstacleData: "odata", 
-            directionData: "ddata", 
-            as: "<div/>"
-        });
+    var getHorizontalCollisions = function () {
+            return $('#horizontalCollider.collider').collision(obstacles_selector, {
+                relative: "#horizontalCollider",
+                obstacleData: "odata",
+                directionData: "ddata",
+                as: "<div/>"
+            });
+        },
 
-        var collisions = '';
-        // Get all vertical collider collisions.
-        for (var i = 0; i < verticalCollider.length; i++) {
-            collisions += $(verticalCollider[i]).data('ddata');
-        }
+        getVerticalCollisions = function () {
+            return $('#guy.collider').collision(obstacles_selector, {
+                relative: "#guy",
+                obstacleData: "odata",
+                directionData: "ddata",
+                as: "<div/>"
+            });
+        },
 
-        // Remove left and right direction collisions.
-        collisions = collisions.replace("W", "");
-        collisions = collisions.replace('E', '');
+        getHorizontalCollisionDirections = function () {
+            var collider = getHorizontalCollisions(),
+                collisionDirections = '';
 
-        // Get all horizontal collider collisions.
-        for (var i = 0; i < horizontalCollider.length; i++) {
-            collisions += $(horizontalCollider[i]).data('ddata');
-        } 
-        
-        return collisions;
-    }
+            for (var i = 0; i < collider.length; i++) {
+                collisionDirections += $(collider[i]).data('ddata');
+            }
 
-    /* PHYSICS SECTION */
+            collisionDirections = collisionDirections.replace('N', '');
+            collisionDirections = collisionDirections.replace('S', '');
+
+            return collisionDirections;
+        },
+
+        getVerticalCollisionDirections = function () {
+            var collider = getVerticalCollisions(),
+                collisionDirections = '';
+
+            for (var i = 0; i < collider.length; i++) {
+                collisionDirections += $(collider[i]).data('ddata');
+            }
+
+            collisionDirections = collisionDirections.replace('E', '');
+            collisionDirections = collisionDirections.replace('W', '');
+
+            return collisionDirections;
+        },
+
+        // Get collision direction (if any) from both vertical and horizontal colliders.
+        // Returns string including all directions with collisions.
+        getCollisionDirections = function (collisionsHorizontal, collisionsVertical) {
+
+            var collisionDirections = '';
+
+            // Get all vertical collider collisions.
+            for (var i = 0; i < collisionsVertical.length; i++) {
+                collisionDirections += $(collisionsVertical[i]).data('ddata');
+            }
+
+            // Remove left and right direction collisions for vertical collider.
+            collisionDirections = collisionDirections.replace("W", "");
+            collisionDirections = collisionDirections.replace('E', '');
+
+            // Get all horizontal collider collisions.
+            for (var i = 0; i < collisionsHorizontal.length; i++) {
+                collisionDirections += $(collisionsHorizontal[i]).data('ddata');
+            }
+
+            return collisionDirections;
+        },
+
+        getCollisionsSimple = function () {
+            return $(colliders_selector).collision(obstacles_selector);
+        },
+
+        resetPlayerPos = function () {
+            horizontalVelocity = 0;
+            verticalVelocity = 0;
+            guy.css('top', $($('.obstacle.levelplatform')[0]).css('top'));
+            guy.css('left', '100px');
+        };
+
+
+    /* RENDER SECTION */
+    // Frames are rendering using setInterval set to interval equal to the cycle length.
+    // Set the FPS to set how often a frame is rendered.
+    // Rendering is divided into three sections: input constraint, simulation, and update.
+
+
     setInterval(function () {
-        var collisions = getCollisionDirections();
 
-        // Jump is allowed if player is standing on some platform (collision at bottom).
-        if (keyMap.up && collisions.indexOf('S') != -1) {
+        var collisionsHorizontal = getHorizontalCollisions(),
+            collisionsVertical = getVerticalCollisions(),
+
+            // Simple collisions don't tell us the direction, but this way
+            // we can get access to the className and id of the object which it
+            // collided against.
+            collisionsSimple = getCollisionsSimple(),
+
+            // Input Constraint - in this section, check for collisions and use them to constrain the input.
+            // First, get all collision directions.
+            collisionDirections = getCollisionDirections(collisionsHorizontal, collisionsVertical),
+
+            oldLeft,
+            oldTop;
+
+            //console.log('1: ' + collisionDirections);
+
+        //console.log(collisionDirections);
+        var collVert = getVerticalCollisionDirections();
+        var collHori = getHorizontalCollisionDirections();
+
+        // Jump is only allowed if player is standing on some platform (collision at bottom).
+        if ((keyMap.up) && collVert.indexOf('S') != -1) {
+            document.getElementById('jump').play();
             verticalVelocity = jumpVelocity;
-        }
-        else {
+            guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
+        } else {
             // If no up collision below player, continue falling.
             // Gravity calculated using vNew = vOld + (gravity * deltaTime).
             verticalVelocity += -9.81 * deltaTime;
         }
 
         // Going left or right is allowed as long as no collison on left.
-        if (keyMap.left && collisions.indexOf('W') === -1) {
+        if (keyMap.left && collHori.indexOf('W') === -1) {
             horizontalVelocity = -1 * moveVelocity;
-        }
-        else if (keyMap.right && collisions.indexOf('E') === -1) {
+        } else if (keyMap.right && collHori.indexOf('E') === -1) {
             horizontalVelocity = moveVelocity;
-        }
-        else {
+        } else {
+            // If there are no left or right arrow key press, then no vertical movement.
             horizontalVelocity = 0;
         }
 
-        // Render next frame.
-        // Update vertical location. 
-        // Multipled by -1 because the downwards direction is negative in terms of velocity.
-        // But downwards direction in absolute position is a larger positive number.
-        //guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
+        // Simulation - Simulate next frame using current velocities to see if collisions will happen.
+        // Update trajectory collider. The player object uses two seperate colliders: vertical and horizontal.
+        // This is due to the fact that with gravity, the player may eventually accelerate so fast that they can
+        // completed pass through an obstacle in a single frame without every colliding with it.
+        // The vertical collider is implemented such that it represents trajectory.
+        // It extends from the player's current position to its next position (based on velocity).
+        // This way, any obstacles passed in between will be detected in collision detection.
 
-        // Update horizontal location.
-        guy.css('left', guy.offset().left + (velocityScaler * horizontalVelocity) + 'px');
+        // Save old positions in case we need to go back.
+        oldLeft = guy.offset().left,
+        oldTop = guy.offset().top;
 
+        // Set trajectory collider length (height).
         guy.css('height', guy_height + (-1 * verticalVelocity * velocityScaler) + 'px');
 
-        // Reevaluate collision to check for new collisions in the new frame.
-        collisions = getCollisionDirections();
+        // The horizontal position is slightly simpler, since it does not accelerate. It is highly unlikely,
+        // next to impossible, for it to skip over an entire obstacle. Thus, no need for trajectory.
+        var collVert = getVerticalCollisionDirections();
+        // Move the player to the next horizontal position.
+        guy.css('left', guy.offset().left + (velocityScaler * horizontalVelocity) + 'px');
+        var collHori = getHorizontalCollisionDirections();
+        // Re-evaluate collision to check for new collisions in the next frame.
+        collisionsHorizontal = getHorizontalCollisions();
+        collisionsVertical = getVerticalCollisions();
+        collisionDirections = getCollisionDirections(collisionsHorizontal, collisionsVertical);
 
-        if (collisions.indexOf('S') != -1) {
-            var collData = $('#guy.collider').collision(obstacles_selector, { 
-                relative: "#guy", 
-                obstacleData: "odata", 
-                directionData: "ddata", 
-                as: "<div/>"
-            });
+        //console.log('2:' + collisionDirections);
+
+        // Did the player hit the goal?
+        if (collisionsSimple.length > 0) {
+            if (collisionsSimple[0].id === 'goal') {
+                document.getElementById('next_level').play();
+                resetPlayerPos();
+                stats.level++;
+                localStorage.setItem("level", stats.level);
+                resetPlayerPos();
+                return;
+            }
+
+            if (collisionsSimple[0].id === 'princess') {
+                alert('game over');
+                return;
+            }
+
+            // Did the player ded?
+            if (collisionsSimple[0].className.indexOf('deathfield') != -1) {
+                document.getElementById('death').play();
+                resetPlayerPos();
+                return;
+            }
+        }
+
+        if (collHori.indexOf('W') != -1) {
+            //console.log(parseFloat($(collisionsHorizontal[0]).css('width')));
+
+            var leftLimit = parseFloat($(collisionsHorizontal[0]).css('width').replace('px', ''));
+
+            console.log('Left collision');
+
+            for (var i = 1; i < collisionsHorizontal.length; i++) {
+                if (parseFloat($(collisionsHorizontal[i]).css('width').replace('px', '')) < leftLimit) {
+                    leftLimit = parseFloat($(collisionsHorizontal[i]).css('width').replace('px', ''));
+                }
+            }
+
+            guy.css('left', guy.offset().left + 6 + 'px');
+
+            //guy.css('left', oldLeft - 1);
+
+        } else if (collHori.indexOf('E') != -1) {
+            /*
+            var leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
+
+            console.log('Right collision');
+
+            for (var i = 1; i < collisionsHorizontal.length; i++) {
+                if (guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', '')) < leftLimit) {
+                    leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
+                }
+            }
+            */
+            guy.css('left', guy.offset().left - 6 + 'px');
+
+            //guy.css('left', oldLeft);
+
+        }
+
+        if (collVert.indexOf('S') != -1) {
+            console.log('On ground.');
 
             var bottomLimit = 0;
-            for (var i = 0; i < collData.length; i++) {
-                if (parseFloat($(collData[i]).css('top').replace('px', '')) > bottomLimit) {
-                    bottomLimit = parseFloat($(collData[i]).css('top').replace('px', ''));
+            for (var i = 0; i < collisionsVertical.length; i++) {
+                if (parseFloat($(collisionsVertical[i]).css('top').replace('px', '')) > bottomLimit) {
+                    bottomLimit = parseFloat($(collisionsVertical[i]).css('top').replace('px', ''));
                 }
             }
 
             verticalVelocity = 0;
 
-            guy.css('top', guy.offset().top + bottomLimit - 15 + 'px');
+            guy.css('top', guy.offset().top + bottomLimit - (guy_height - 1) + 'px');
+        }
+        else if (collVert.indexOf('N') != -1) {
+            console.log('Hit top.');
+            /*
+            var bottomLimit = 0;
+            for (var i = 0; i < collisionsVertical.length; i++) {
+                if (parseFloat($(collisionsVertical[i]).css('top').replace('px', '')) > bottomLimit) {
+                    bottomLimit = parseFloat($(collisionsVertical[i]).css('top').replace('px', ''));
+                }
+            }*/
+
+            verticalVelocity = 0;
+
+            guy.css('top', guy.offset().top + 6 + 'px');
         }
         else {
             guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
         }
 
-        if (collisions.indexOf('W') != -1) {
-            var collData = $('#horizontalCollider.collider').collision(obstacles_selector, { 
-                relative: "#horizontalCollider", 
-                obstacleData: "odata", 
-                directionData: "ddata", 
-                as: "<div/>"
-            });
-
-            if (collData[0]) {
-                var leftLimit = parseFloat($(collData[0]).css('width').replace('px', ''));
-                for (var i = 1; i < collData.length; i++) {
-                    if (parseFloat($(collData[i]).css('width').replace('px', '')) < leftLimit) {
-                        leftLimit = parseFloat($(collData[i]).css('width').replace('px', ''));
-                    }
-                }
-            }
-            
-            guy.css('left', guy.offset().left + leftLimit + 'px');
-        }
-        else if (collisions.indexOf('E') != -1) {
-            var collData = $('#horizontalCollider.collider').collision(obstacles_selector, { 
-                relative: "#horizontalCollider", 
-                obstacleData: "odata", 
-                directionData: "ddata", 
-                as: "<div/>"
-            });
-
-            if (collData[0]) {
-                var leftLimit = guy_height - parseFloat($(collData[0]).css('left').replace('px', ''));
-                for (var i = 1; i < collData.length; i++) {
-                    if (guy_height - parseFloat($(collData[0]).css('left').replace('px', '')) < leftLimit) {
-                        leftLimit = guy_height - parseFloat($(collData[0]).css('left').replace('px', ''));
-                    }
-                }
-            }
-            
-            guy.css('left', guy.offset().left - leftLimit + 'px');
-        }
     }, cycleLength);
 });
