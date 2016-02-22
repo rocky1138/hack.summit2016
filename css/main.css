@@ -10,8 +10,8 @@
 .deathfield {
     position:absolute;
     width:100%;
-    height:5em;
-    background:rgba(235, 221, 218, 0);
+    height:10px;
+    background:rgba(235, 221, 218, 1);
     bottom:-3em;
 }
 
