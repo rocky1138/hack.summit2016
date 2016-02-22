@@ -3,17 +3,54 @@ $(function () {
 
     'use strict';
 
-    var hints,
-        storyPointsTimer,
-        speechBubbleTimer,
-		links = $('link[rel="import"]'),
-		storyPoint = 0,
-        speechBubbleIndex = 0;
+    var storyPointsTimer,
+		storyPoint = 0;
 
     // When stats object changes, run callback.
     watch (stats, function () {
 
-        var level = links[stats.level].import;
+        var hints,
+            speechBubbleIndex = 0,
+            level = $('link[rel="import"]')[stats.level].import,
+            onBubbleClose = function () {
+                if (speechBubbleIndex === hints.length - 1) {
+                    $('span#speech-bubble-close').off('click', onBubbleClose);
+                    $('span#speech-bubble-prev').off('click', onBubblePrev);
+                    $('span#speech-bubble-next').off('click', onBubbleNext);
+                    $('div#speech-bubble').fadeOut(250);
+                }
+            },
+            onBubbleNext = function () {
+                if (speechBubbleIndex < hints.length - 1) {
+                    
+                    $('div#speech-bubble-text').html($(hints[++speechBubbleIndex]).html());
+                    
+                    $('span#speech-bubble-prev').removeClass('faded');
+                    
+                    if (speechBubbleIndex == hints.length - 1) {
+                        $('span#speech-bubble-next').addClass('faded');
+                        $('span#speech-bubble-close').removeClass('faded');
+                    } else {
+                        $('span#speech-bubble-next').removeClass('faded');
+                    }
+                }
+            },
+            onBubblePrev = function () {
+                if (speechBubbleIndex > 0) {
+                    
+                    $('div#speech-bubble-text').html($(hints[--speechBubbleIndex]).html());
+                    
+                    $('span#speech-bubble-next').removeClass('faded');
+                    
+                    if (speechBubbleIndex === 0) {
+                        $('span#speech-bubble-prev').addClass('faded');
+                    } else {
+                        $('span#speech-bubble-prev').removeClass('faded');
+                        $('span#speech-bubble-close').addClass('faded');
+                    }
+                }
+            };
+
 
         // Select and display our level.
         $('.game-window').html(level.querySelector('#level' + stats.level).innerHTML);
@@ -22,7 +59,23 @@ $(function () {
         hints = $('.game-window .hint');
         
         if (hints.length > 0) {
-            $('div#speech-bubble').html($(hints[speechBubbleIndex++]).children());
+            
+            $('div#speech-bubble').fadeIn(250);
+            
+            if (hints.length === 1) {
+                $('span#speech-bubble-close').removeClass('faded');
+                $('span#speech-bubble-prev').addClass('faded');
+                $('span#speech-bubble-next').addClass('faded');
+            }
+            
+            $('div#speech-bubble-text').html($(hints[0]).html());
+
+            $('span#speech-bubble-close').on('click', onBubbleClose);
+            $('span#speech-bubble-prev').on('click', onBubblePrev);
+            $('span#speech-bubble-next').on('click', onBubbleNext);
+            
+        } else {
+            $('div#speech-bubble').css('display', 'none');
         }
     });
 
@@ -42,25 +95,11 @@ $(function () {
 				
 				$('div#story > button').css('display', 'block');
 				$('div#story > button').click(function () {
-                    
 					$('div#story').css('display', 'none');
-                    
-                    speechBubbleTimer = setInterval(function () {
-                        
-                        $('div#speech-bubble').html($(hints[speechBubbleIndex++]).children());
-                        
-                        if (speechBubbleIndex === hints.length) {
-                            setTimeout(function () {
-                                $('div#speech-bubble').fadeOut(500);
-                                clearInterval(speechBubbleTimer);
-                            }, 3500);
-                        }
-                    }, 3500);
 				});
 				
 				clearInterval(storyPointsTimer);
 			}
 		}, 100);
 	}
-    
 });
