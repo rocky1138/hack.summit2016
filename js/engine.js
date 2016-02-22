@@ -95,7 +95,7 @@ $(function () {
         getVerticalCollisionDirections = function () {
             var collider = getVerticalCollisions(),
                 collisionDirections = '';
-                
+
             for (var i = 0; i < collider.length; i++) {
                 collisionDirections += $(collider[i]).data('ddata');
             }
@@ -224,10 +224,14 @@ $(function () {
             if (collisionsSimple[0].id === 'goal') {
                 document.getElementById('next_level').play();
                 resetPlayerPos();
-                localStorage.setItem("level", stats.level);
                 stats.level++;
                 localStorage.setItem("level", stats.level);
                 resetPlayerPos();
+                return;
+            }
+
+            if (collisionsSimple[0].id === 'princess') {
+                alert('game over');
                 return;
             }
 
@@ -239,7 +243,7 @@ $(function () {
             }
         }
 
-        if (collHori.indexOf('W') != -1) {     
+        if (collHori.indexOf('W') != -1) {
             //console.log(parseFloat($(collisionsHorizontal[0]).css('width')));
 
             var leftLimit = parseFloat($(collisionsHorizontal[0]).css('width').replace('px', ''));
@@ -253,9 +257,9 @@ $(function () {
             }
 
             guy.css('left', guy.offset().left + 6 + 'px');
-            
+
             //guy.css('left', oldLeft - 1);
-        
+
         } else if (collHori.indexOf('E') != -1) {
             /*
             var leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
@@ -269,7 +273,7 @@ $(function () {
             }
             */
             guy.css('left', guy.offset().left - 6 + 'px');
-            
+
             //guy.css('left', oldLeft);
 
         }
@@ -301,7 +305,7 @@ $(function () {
             verticalVelocity = 0;
 
             guy.css('top', guy.offset().top + 6 + 'px');
-        } 
+        }
         else {
             guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
         }
