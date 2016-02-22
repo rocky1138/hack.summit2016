@@ -32,6 +32,9 @@ $(function () {
 
     // Watch for keydown event. Log key as pressed.
     $(document).keydown(function (e) {
+        if ( !playable ) {
+            return;
+        }
         if (e.keyCode === arrowRight) {
             keyMap.right = true;
 
