@@ -76,10 +76,10 @@ div#speech-bubble:before {
     z-index: 6;
 }
 
-#princess {
+#friend {
     position:absolute;
-    width:4em;
-    height:4em;
-    background: url('/images/princess.gif') no-repeat;
+    width:2em;
+    height:2em;
+    background: url('/images/friend.gif') no-repeat;
     background-size:  100%;
 }

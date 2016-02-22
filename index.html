@@ -32,11 +32,11 @@
                     level: null
                 },
 				story = [
-					'Prince Pixel and Princes Pixella rule the Super Markup World<br>which was created by the great architect Markup Polo.',
+					'Pixel and Pixella live in the Super Markup World<br>which was created by the great architect Markup Polo.',
 					'On a beautiful sunny day when Pixel and Pixella visited<br>the mountainous region of Divland ...',
-					'... the evil architect badacss has collapsed all the mountains!<br>Princess Pixella somehow evaded the disaster using a hyperlink tag.',
-					'But now prince Pixel and princess Pixella are separated!',
-					'It is up to you, Prince Pixel, to find princess Pixella and destroy badacss.'
+					'... the evil architect Badacss has collapsed all the mountains!<br>Pixella somehow evaded the disaster using a hyperlink tag.',
+					'But now Pixel and Pixella are separated!',
+					'It is up to you, Pixel, to find princess Pixella and destroy badacss.'
 				];
             $(function () {
                 guy = $('#guy');
@@ -63,6 +63,12 @@
 			<div id='storyText'></div>
 			<button type='button'>OK</button>
 		</div>
+
+        <div id='endstory'>
+            <h1>You Did It!</h1>
+            <div>Congratulations, not only did you save your friend but you also learned some valuable skills along the way.</div>
+            <div>Refresh the page to play again!</div>
+        </div>
 
         <div class='collider' id='guy'>
             <div class='collider' id='horizontalCollider' style='width: 32px; height: 31px;'></div>
@@ -121,9 +127,9 @@
 			Free awesome music provided by http://opengameart.org/content/fun-bgm
 		-->
         <audio loop autoplay id=music preload="auto" volume=1>
-          <source src="/sounds/music.ogg" type="audio/mpeg">
+          <source src="/sounds/music2.ogg" type="audio/mpeg">
         </audio>
-         <div id="music-button" class="button-container"><img src="/images/music_note.gif"></div>
+         <div id="music-button" class="button-container"><img style="width:48px;height:48px;" src="/images/music_note2.gif"></div>
 
         <div class="tooltip">Tooltip</div>
     </body>
