@@ -44,7 +44,8 @@ min-width:350px !important;
 display:table-cell;
 left: 80px;
 float:right;
-font-family:arial;
+/*font-family:arial;*/
+font-family:nokia;
 font-smooth:never;
 position: absolute;
 bottom:10px;
