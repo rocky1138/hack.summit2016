@@ -27,32 +27,32 @@ div#goal {
 
 
 
-.speechbubble{
-pointer-events: visible;
-overflow-wrap: break-word;
-word-wrap: break-word;
-font-size:12pt;
-color: black;
-background-color:white;
-border: 6px solid;
-padding:10px;
-z-index:4;
-position:absolute;
-bottom:100px;
-min-height:50px;
-min-width:350px !important;
-display:table-cell;
-left: 80px;
-float:right;
-font-family:arial;
-font-smooth:never;
-position: absolute;
-bottom:10px;
-background: #FFFFFF;
-border: #000000 solid 6px;
+div#speech-bubble {
+    display:table-cell;
+    pointer-events: visible;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-size:12pt;
+    color: black;
+    background-color:white;
+    border: 6px solid;
+    padding:10px;
+    z-index:4;
+    position:absolute;
+    bottom:100px;
+    min-height:50px;
+    min-width:350px !important;
+    left: 80px;
+    float:right;
+    font-family:arial;
+    font-smooth:never;
+    position: absolute;
+    bottom:10px;
+    background: #FFFFFF;
+    border: #000000 solid 6px;
 }
 
-  .speechbubble:after {
+div#speech-bubble:after {
     content: "";
     position: absolute;
     bottom: 15px;
@@ -65,7 +65,7 @@ border: #000000 solid 6px;
     z-index: 6;
 }
 
-  .speechbubble:before {
+div#speech-bubble:before {
     content: "";
     position: absolute;
     left: -46px;
