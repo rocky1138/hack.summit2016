@@ -187,7 +187,7 @@ $(function () {
             }
 
             if (collided.indexOf('friend') != -1) {
-                localStorage.setItem('level', 0)
+                localStorage.setItem('level', 0);
                 $('#endstory').fadeIn(500);
                 return;
             }
@@ -265,7 +265,8 @@ $(function () {
             }
 
             if (collided.indexOf('friend') != -1) {
-                alert('game over');
+                localStorage.setItem('level', 0);
+                $('#endstory').fadeIn(500);
                 return;
             }
 
