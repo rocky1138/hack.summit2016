@@ -19,6 +19,24 @@
     display:none;
 }
 
+div#endstory {
+	display:none;
+	overflow:visible;
+	font-family:nokia;
+	font-size:1.25em;
+	background:#fff;
+	opacity:0.90;
+	height:100%;
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:100;
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+
 div#story {
 	display:none;
 	overflow:visible;
