@@ -22,7 +22,47 @@ $(function () {
         hints = $('.game-window .hint');
         
         if (hints.length > 0) {
-            $('div#speech-bubble').html($(hints[speechBubbleIndex++]).children());
+            
+            $('div#speech-bubble-text').html($(hints[0]).html());
+            
+            console.log(hints);
+            
+            $('span#speech-bubble-prev').click(function () {
+                if (speechBubbleIndex > 0) {
+                    $('div#speech-bubble-text').html($(hints[--speechBubbleIndex]).html());
+                    
+                    if (speechBubbleIndex === 0) {
+                        $('span#speech-bubble-prev').addClass('faded');    
+                        $('span#speech-bubble-next').removeClass('faded');
+                    } else {
+                        $('span#speech-bubble-prev').removeClass('faded');
+                    }
+                    
+                } else {
+                    $('span#speech-bubble-prev').addClass('faded');
+                    $('span#speech-bubble-next').removeClass('faded');
+                }
+            });
+            
+            $('span#speech-bubble-next').click(function () {
+                if (speechBubbleIndex < hints.length - 1) {
+                    
+                    $('div#speech-bubble-text').html($(hints[++speechBubbleIndex]).html());
+                    
+                    if (speechBubbleIndex == hints.length - 1) {
+                        $('span#speech-bubble-prev').removeClass('faded');
+                        $('span#speech-bubble-next').addClass('faded');
+                    } else {
+                        $('span#speech-bubble-next').removeClass('faded');
+                    }
+                } else {
+                    $('span#speech-bubble-next').addClass('faded');
+                    $('span#speech-bubble-prev').removeClass('faded');
+                }
+            })
+            
+        } else {
+            $('div#speech-bubble').css('display', 'none');
         }
     });
 
@@ -42,20 +82,7 @@ $(function () {
 				
 				$('div#story > button').css('display', 'block');
 				$('div#story > button').click(function () {
-                    
 					$('div#story').css('display', 'none');
-                    
-                    speechBubbleTimer = setInterval(function () {
-                        
-                        $('div#speech-bubble').html($(hints[speechBubbleIndex++]).children());
-                        
-                        if (speechBubbleIndex === hints.length) {
-                            setTimeout(function () {
-                                $('div#speech-bubble').fadeOut(500);
-                                clearInterval(speechBubbleTimer);
-                            }, 3500);
-                        }
-                    }, 3500);
 				});
 				
 				clearInterval(storyPointsTimer);

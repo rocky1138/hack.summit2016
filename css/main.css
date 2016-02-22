@@ -19,6 +19,14 @@
     display:none;
 }
 
+.pointer {
+    cursor:pointer;
+    text-decoration:underline;
+}
+.faded {
+    opacity:0.2;
+}
+
 div#story {
 	display:none;
 	overflow:visible;
