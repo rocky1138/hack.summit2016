@@ -19,6 +19,10 @@
     display:none;
 }
 
+.right {
+    float:right;
+}
+
 .pointer {
     cursor:pointer;
     text-decoration:underline;
@@ -167,9 +171,7 @@ htmlcommand{
     z-index: -1;
 }
 
-textarea
-{
-
+textarea {
     border:2px solid black;
     width: 100%;
     font-size:1em;
