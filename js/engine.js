@@ -62,20 +62,48 @@ $(function () {
 
     var getHorizontalCollisions = function () {
             return $('#horizontalCollider.collider').collision(obstacles_selector, {
-                    relative: "#horizontalCollider",
-                    obstacleData: "odata",
-                    directionData: "ddata",
-                    as: "<div/>"
-                });
+                relative: "#horizontalCollider",
+                obstacleData: "odata",
+                directionData: "ddata",
+                as: "<div/>"
+            });
         },
 
         getVerticalCollisions = function () {
             return $('#guy.collider').collision(obstacles_selector, {
-                    relative: "#guy",
-                    obstacleData: "odata",
-                    directionData: "ddata",
-                    as: "<div/>"
-                });
+                relative: "#guy",
+                obstacleData: "odata",
+                directionData: "ddata",
+                as: "<div/>"
+            });
+        },
+
+        getHorizontalCollisionDirections = function () {
+            var collider = getHorizontalCollisions(),
+                collisionDirections = '';
+
+            for (var i = 0; i < collider.length; i++) {
+                collisionDirections += $(collider[i]).data('ddata');
+            }
+
+            collisionDirections = collisionDirections.replace('N', '');
+            collisionDirections = collisionDirections.replace('S', '');
+
+            return collisionDirections;
+        },
+
+        getVerticalCollisionDirections = function () {
+            var collider = getVerticalCollisions(),
+                collisionDirections = '';
+                
+            for (var i = 0; i < collider.length; i++) {
+                collisionDirections += $(collider[i]).data('ddata');
+            }
+
+            collisionDirections = collisionDirections.replace('E', '');
+            collisionDirections = collisionDirections.replace('W', '');
+
+            return collisionDirections;
         },
 
         // Get collision direction (if any) from both vertical and horizontal colliders.
@@ -138,8 +166,12 @@ $(function () {
 
             //console.log('1: ' + collisionDirections);
 
+        //console.log(collisionDirections);
+        var collVert = getVerticalCollisionDirections();
+        var collHori = getHorizontalCollisionDirections();
+
         // Jump is only allowed if player is standing on some platform (collision at bottom).
-        if (( keyMap.up) && collisionDirections.indexOf('S') != -1) {
+        if ((keyMap.up) && collVert.indexOf('S') != -1) {
             document.getElementById('jump').play();
             verticalVelocity = jumpVelocity;
             guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
@@ -150,9 +182,9 @@ $(function () {
         }
 
         // Going left or right is allowed as long as no collison on left.
-        if (keyMap.left && collisionDirections.indexOf('W') === -1) {
+        if (keyMap.left && collHori.indexOf('W') === -1) {
             horizontalVelocity = -1 * moveVelocity;
-        } else if (keyMap.right && collisionDirections.indexOf('E') === -1) {
+        } else if (keyMap.right && collHori.indexOf('E') === -1) {
             horizontalVelocity = moveVelocity;
         } else {
             // If there are no left or right arrow key press, then no vertical movement.
@@ -176,10 +208,10 @@ $(function () {
 
         // The horizontal position is slightly simpler, since it does not accelerate. It is highly unlikely,
         // next to impossible, for it to skip over an entire obstacle. Thus, no need for trajectory.
-
+        var collVert = getVerticalCollisionDirections();
         // Move the player to the next horizontal position.
         guy.css('left', guy.offset().left + (velocityScaler * horizontalVelocity) + 'px');
-
+        var collHori = getHorizontalCollisionDirections();
         // Re-evaluate collision to check for new collisions in the next frame.
         collisionsHorizontal = getHorizontalCollisions();
         collisionsVertical = getVerticalCollisions();
@@ -207,9 +239,7 @@ $(function () {
             }
         }
 
-        if (collisionDirections.indexOf('W') != -1 || collisionDirections.indexOf('E') != -1 || collisionDirections.indexOf('Inside') != -1) {
-
-            /*
+        if (collHori.indexOf('W') != -1) {     
             //console.log(parseFloat($(collisionsHorizontal[0]).css('width')));
 
             var leftLimit = parseFloat($(collisionsHorizontal[0]).css('width').replace('px', ''));
@@ -222,12 +252,12 @@ $(function () {
                 }
             }
 
-            guy.css('left', guy.offset().left + leftLimit + 'px');
-            */
-            guy.css('left', oldLeft);
-        /*
-        } else if (collisionDirections.indexOf('E') != -1) {
-
+            guy.css('left', guy.offset().left + 6 + 'px');
+            
+            //guy.css('left', oldLeft - 1);
+        
+        } else if (collHori.indexOf('E') != -1) {
+            /*
             var leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
 
             console.log('Right collision');
@@ -237,18 +267,17 @@ $(function () {
                     leftLimit = guy_height - parseFloat($(collisionsHorizontal[0]).css('left').replace('px', ''));
                 }
             }
-
-            guy.css('left', guy.offset().left - leftLimit + 'px');
             */
-            guy.css('left', oldLeft);
+            guy.css('left', guy.offset().left - 6 + 'px');
+            
+            //guy.css('left', oldLeft);
 
-        } else if (collisionDirections.indexOf('S') != -1) {
+        }
 
-        /*
-            var bottomLimit = 0;
-
+        if (collVert.indexOf('S') != -1) {
             console.log('On ground.');
 
+            var bottomLimit = 0;
             for (var i = 0; i < collisionsVertical.length; i++) {
                 if (parseFloat($(collisionsVertical[i]).css('top').replace('px', '')) > bottomLimit) {
                     bottomLimit = parseFloat($(collisionsVertical[i]).css('top').replace('px', ''));
@@ -258,13 +287,24 @@ $(function () {
             verticalVelocity = 0;
 
             guy.css('top', guy.offset().top + bottomLimit - (guy_height - 1) + 'px');
-            */
-            guy.css('top', oldTop);
+        }
+        else if (collVert.indexOf('N') != -1) {
+            console.log('Hit top.');
+            /*
+            var bottomLimit = 0;
+            for (var i = 0; i < collisionsVertical.length; i++) {
+                if (parseFloat($(collisionsVertical[i]).css('top').replace('px', '')) > bottomLimit) {
+                    bottomLimit = parseFloat($(collisionsVertical[i]).css('top').replace('px', ''));
+                }
+            }*/
 
+            verticalVelocity = 0;
 
-
-        } else {
+            guy.css('top', guy.offset().top + 6 + 'px');
+        } 
+        else {
             guy.css('top', guy.offset().top + (-1 * velocityScaler * verticalVelocity) + 'px');
         }
+
     }, cycleLength);
 });
