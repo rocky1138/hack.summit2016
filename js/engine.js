@@ -218,7 +218,7 @@ $(function () {
         collisionDirections = getCollisionDirections(collisionsHorizontal, collisionsVertical);
 
         //console.log('2:' + collisionDirections);
-
+        collisionsSimple = getCollisionsSimple();
         // Did the player hit the goal?
         if (collisionsSimple.length > 0) {
             if (collisionsSimple[0].id === 'goal') {
