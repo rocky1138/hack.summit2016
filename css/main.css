@@ -197,12 +197,17 @@ textarea
 }
 
 .tooltip {
+    font-family:'Lakki Reddy';
+    font-size: 1em;
+    background:#fff;
     position: fixed; /** depends on how it handles the e.pageX and e.pageY **/
-    //width: 10px;
-    //height: 10px;
-    background-color: #C2CCD1 ;
-    border: 1px dotted ;
+    width: 80px;
+    background-color: white ;
+    opacity:0.90;
+    text-align: center;
+    border: 2px solid ;
     border-color: black;
     z-index: 10;
     display: none; /**let the tooltip be not visable, when startup **/
+    padding-top: .35em;
 }
