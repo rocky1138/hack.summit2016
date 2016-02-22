@@ -3,7 +3,8 @@
 	padding:0;
 	margin:0;
 	overflow:hidden;
-	font-family: Arial, sans-serif;
+	/*font-family: Arial, sans-serif;*/
+    font-family:nokia;
 }
 
 .deathfield {
@@ -17,7 +18,7 @@
 div#story {
 	display:none;
 	overflow:visible;
-	font-family:'Lakki Reddy';
+	font-family:nokia;
 	font-size:1.25em;
 	background:#fff;
 	opacity:0.90;
@@ -43,7 +44,7 @@ div#story button {
 	padding:1em;
 	background:#fff;
 	transform: rotate(-5deg);
-	font-family:'Lakki Reddy';
+	font-family:nokia;
 	width:12em;
 }
 div#story button:active {
@@ -88,7 +89,8 @@ h1 {
    border: 6px solid;
    padding:10px;
    text-align:left;
-   font-family:arial;
+   /*font-family:arial;*/
+   font-family:nokia;
    font-smooth:never;
    border: #000000 solid 6px;
 }
@@ -183,10 +185,11 @@ textarea
 }*/
 
 .btn {
+    font-family:nokia;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  font-family: Arial;
+  /*font-family: Arial;*/
   color: #ffffff;
   font-size: 20px;
   background: #3498db;
@@ -203,6 +206,7 @@ textarea
 
 .button-container
 {
+font-family:nokia;
  cursor: pointer;
  position:fixed;
  bottom:10px;
@@ -219,10 +223,10 @@ textarea
 
 .tooltip {
     font-family:nokia;
-    font-size: 1em;
+    font-size: .5em;
     background:#fff;
     position: fixed; /** depends on how it handles the e.pageX and e.pageY **/
-    width: 200px;
+    width: 120px;
     background-color: white ;
     opacity:0.90;
     text-align: center;
