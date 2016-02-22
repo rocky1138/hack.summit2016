@@ -15,6 +15,10 @@
     bottom:-3em;
 }
 
+.hint {
+    display:none;
+}
+
 div#story {
 	display:none;
 	overflow:visible;
