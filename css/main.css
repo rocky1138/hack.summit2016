@@ -151,7 +151,7 @@ htmlcommand{
     background: linear-gradient(
         rgba(215, 102, 54, 0.5),
         rgba(215, 102, 54, 0.5)
-    ),url('/images/pixeltexture.png') repeat;
+    ),url('../images/pixeltexture.png') repeat;
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
 }
 .wallright {
@@ -273,5 +273,5 @@ font-family:nokia;
 
  @font-face {
      font-family:  nokia;
-      src: url(/fonts/nokia.ttf);
+      src: url(../fonts/nokia.ttf);
  }
