@@ -181,7 +181,7 @@ textarea {
     background:     linear-gradient(
       rgba(13, 255, 0, 0.5),
       rgba(13, 255, 0, 0.5)
-    ),url('/images/pixeltexture.png') repeat;
+    ),url('../images/pixeltexture.png') repeat;
 }
 
 .platform {
@@ -192,7 +192,7 @@ textarea {
     background:     linear-gradient(
       rgba(98, 113, 120, 0.5),
       rgba(98, 113, 120, 0.5)
-    ),url('/images/pixeltexture.png') repeat;
+    ),url('../images/pixeltexture.png') repeat;
     z-index: -1;
 }
 
