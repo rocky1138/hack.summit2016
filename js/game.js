@@ -1,5 +1,5 @@
 window.addEventListener('WebComponentsReady', function(e) {
-    
+
     // Functionality related to game logic, e.g., loading levels, points.
     $(function () {
 
@@ -20,6 +20,7 @@ window.addEventListener('WebComponentsReady', function(e) {
                         $('span#speech-bubble-close').off('click', onBubbleClose);
                         $('span#speech-bubble-prev').off('click', onBubblePrev);
                         $('span#speech-bubble-next').off('click', onBubbleNext);
+                        $('span#speech-bubble-close').addClass('faded');
                         $('div#speech-bubble').fadeOut(250);
                     }
                 },
