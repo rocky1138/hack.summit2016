@@ -175,6 +175,7 @@ textarea {
     border:2px solid black;
     width: 100%;
     font-size:1em;
+    font-weight:bold;
 }
 .levelplatform {
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
