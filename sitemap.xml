@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url>
+  <loc>http://supermarkupworld.com/</loc>
+  <lastmod>2015-12-27T12:04:26+00:00</lastmod>
+  <changefreq>hourly</changefreq>
+  <priority>1.00</priority>
+	<image:image>
+	  <image:loc>http://supermarkupworld.com/images/splash.png</image:loc>
+	</image:image>
+</url>
+</urlset>

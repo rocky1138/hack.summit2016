@@ -3,10 +3,24 @@
     <head>
         <!-- For firefox! -->
         <script src='js/webcomponentsjs/webcomponents.js'></script>
-        
+
         <title>Super Markup World</title>
 
         <meta charset='utf-8'>
+
+	<!--Search Engine Stuff -->
+            <meta name="description" content="" />
+            <meta name="keywords" content="" />
+            <meta property="og:title" content="Super Markup World" />
+            <meta property="og:site_name" content="Super Markup World" />
+            <meta property="og:url" content="http://supermarkupworld.com" />
+            <link rel="image_src" href="http://supermarkupworld.com/images/splash.png" / >
+            <meta property="og:image" content="http://supermarkupworld.com/images/splash.png" />
+            <meta name="description" content="A platformer where you solve puzzles using HTML and CSS" />
+            <meta property="og:description" content="A platformer where you solve puzzles using HTML and CSS" />
+            <link rel="icon" type="image/png" href="favicon.ico">
+
+
 
         <!-- CSS files -->
         <link href='css/actors.css' rel='stylesheet'>
@@ -67,7 +81,7 @@
 
         <div id='endstory'>
             <h1>You Did It!</h1>
-            <div><img src="/images/player_big.gif" style="width:200px;height:200px"><img src="/images/friend_big2.gif" style="margin-left:20px;width:200px;height:200px"></div>
+            <div><img src="images/player_big.gif" style="width:200px;height:200px"><img src="images/friend_big2.gif" style="margin-left:20px;width:200px;height:200px"></div>
             <div>Congratulations, not only did you save your friend but you also learned some valuable skills along the way.</div>
             <br><br>
             <div>Refresh the page to play again!</div>
@@ -104,7 +118,7 @@
         <div class='command-window'>
             <div class='command-hint'>HTML Command Window</div>
             <div class='command-box'>
-                <textarea id='htmlcommand' rows=5> &lt;div style='left:300px;bottom:300px'&gt;&lt;/div&gt;</textarea>
+                <textarea id='htmlcommand' rows=5  spellcheck="false"> &lt;div style='left:300px;bottom:300px'&gt;&lt;/div&gt;</textarea>
                 <button id='update' class='btn' type='button'>Create</button>
             </div>
         </div>
@@ -135,10 +149,20 @@
 			Free awesome music provided by http://opengameart.org/content/fun-bgm
 		-->
         <audio loop autoplay id=music preload="auto" volume=1>
-          <source src="/sounds/music2.ogg" type="audio/mpeg">
+          <source src="sounds/music2.ogg" type="audio/mpeg">
         </audio>
-         <div id="music-button" class="button-container"><img style="width:48px;height:48px;" src="/images/music_note2.gif"></div>
+         <div id="music-button" class="button-container"><img style="width:48px;height:48px;" src="images/music_note2.gif"></div>
 
         <div class="tooltip">Tooltip</div>
     </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71679599-8', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>

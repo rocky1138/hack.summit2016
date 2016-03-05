@@ -5,12 +5,12 @@ div#guy {
     //background:#00f;
     bottom:150px;
     left:100px;
-    background: url('/images/player3.gif') no-repeat;
+    background: url('../images/player3.gif') no-repeat;
     background-size:  100%;
 }
 
 #eye {
-    background: url('/images/eye.png');;
+    background: url('../images/eye.png');;
 }
 
 div#goal {
@@ -21,7 +21,7 @@ div#goal {
     background:     linear-gradient(
       rgba(0, 247, 255, 0.7),
       rgba(235, 255, 0, 0.7)
-    ),url('/images/door.gif');
+    ),url('../images/door.gif');
     z-index:1;
 }
 
@@ -80,6 +80,6 @@ div#speech-bubble:before {
     position:absolute;
     width:2em;
     height:2em;
-    background: url('/images/friend.gif') no-repeat;
+    background: url('../images/friend.gif') no-repeat;
     background-size:  100%;
 }
